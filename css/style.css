@@ -260,18 +260,7 @@ footer {
 .hidden {
 	display: none;
 }
-.social-media-banner {
-	background-color: #5A1100;
-	height: 200px;
-	padding-top:20px;
-	padding-bottom: 20px;
-}
-.social_media_view {
-	height: 200px;
-	-webkit-columns: 4; /* Chrome, Safari, Opera */
-	-moz-columns: 4; /* Firefox */
-	columns: 4;
-}
+
 
 /* Mobile */
 @media (max-width: 320px) {
