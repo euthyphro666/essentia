@@ -16,14 +16,14 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	height: 1000px;
-	background-color: #FFFFFF;
+	background-color: #6D1500;
 }
-/* Navigation */
 header {
+	position: fixed;
 	width: 100%;
 	height: 5%;
-	background-color: #52bad5;
-	border-bottom: 1px solid #2C9AB7;
+	background-color: #6D1500;
+	border-bottom: 1px solid #6D1500;
 }
 .logo {
 	color: #fff;
@@ -63,7 +63,7 @@ ul li:hover a {
 	color: #2C9AB7;
 }
 .hero_header {
-	color: #FFFFFF;
+	color: #000000;
 	text-align: center;
 	margin-top: 0px;
 	margin-right: 0px;
@@ -76,6 +76,11 @@ ul li:hover a {
 	background-color: #B3B3B3;
 	padding-top: 150px;
 	padding-bottom: 150px;
+	background-image: url(../images/bear-lake.jpg);
+	height: 400px;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .light {
 	font-weight: bold;
@@ -148,7 +153,7 @@ ul li:hover a {
 /* Parallax Section */
 .banner {
 	background-color: #2D9AB7;
-	background-image: url(../images/parallax.png);
+	background-image: url(../images/porter-live.jpg);
 	height: 400px;
 	background-attachment: fixed;
 	background-size: cover;
@@ -368,7 +373,7 @@ nav ul li {
 	float: none;
 	overflow: auto;
 	display: inline-block;
-	background: #52bad5;
+	background: #6D1500;
 }
 header nav ul {
 	padding: 0px;
