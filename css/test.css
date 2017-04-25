@@ -1,8 +1,149 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 
+:root{
+	--primary-color: #040523;
+	--secondary-color: #676DB5;
+	--tertiary-color: #0054FF;
+	--white: #FFFFFF;
+}
+/*
+VERTICAL CENTER IN DIV
+position: relative;
+top: 50%;
+transform: translateY(-50%);
+
+
+Dark blue to pink
+#000F69 	#0000D9 	#0A00FF 	#3F00FF 	#D48EFF
+Dark blue to light blue
+#000088		#001FEE		#21B2E0		#0058FF		#00FFFF
+Dark blue and tan various
+#040523		#676DB5		#0054FF		#E0D9D1		#61EBFF
+Dark blue to green
+#002531		#216CE2		#6F92C8		#2872F6		#00FF3C
+*/
+*{
+	font-family: 'Raleway', sans-serif;
+	font-weight: normal;
+	margin: 0px;
+	padding: 0px;
+}
+.menu-bar{
+	background-color: var(--primary-color);
+	position: fixed;
+	width: 100%;
+	height: 7%;
+	z-index: 10;
+}
+.menu-bar-logo {
+	width: 15%;
+	padding-left: 15px;
+	color: #FFFFFF;
+	float: left;
+
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+
+
+nav {
+	float: right;
+	width: 50%;
+	text-align: right;
+	margin-right: 25px;
+
+
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+nav ul {
+	list-style-type: none;
+	float: right;
+}
+nav ul li {
+	float: left;
+	color: var(--white);
+	text-align: left;
+	margin-right: 25px;
+	transition: all 0.3s linear;
+}
+ul li a {
+	color: var(--white);
+	text-decoration: none;
+}
+ul li:hover a {
+	color: var(--secondary-color);
+}
+
+
+
+
+.intro{
+	background-color: var(--secondary-color);
+	background-image: url(../images/bear-lake.jpg);
+	height: 400px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-attachment: fixed;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+.intro-title{
+	letter-spacing: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 22px;
+	text-align: center;
+
+
+	position: relative;
+	top: 29%;
+	transform: translateY(-50%);
+}
+.intro-title-contrast{
+	color: var(--secondary-color);
+}
+.intro-sub-title{
+	color: var(--white);
+	padding-right: 10px;
+	padding-left: 10px;
+	text-align: center;
+
+
+	position: relative;
+	top: 30%;
+	transform: translateY(-50%);
+}
+.intro-content{
+	background-color: var(--primary-color);
+	height: 50px;
+}
+
+.center-title {
+	background-color: var(--secondary-color);
+	background-image: url(../images/porter-live.jpg);
+	height: 400px;
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-attachment: fixed;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+
+
+
+
+
+
+
+/* TEST END HERE */
 .social-media-banner {
-	background-color: #5A1100;
+	background-color: var(--primary-color);
 	height: 100px;
 	padding-top:20px;
 	padding-bottom: 20px;
@@ -16,7 +157,7 @@
   vertical-align: top;
 }
 .social-banner {
-  background-color: #571100;
+  background-color: var(--primary-color);
   align-content: center;
   display:inline-block;
   padding-bottom: 20px;
