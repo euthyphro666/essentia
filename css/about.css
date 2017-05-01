@@ -97,10 +97,10 @@ ul li:hover a {
 .about-body{
 	margin: -10% 5%;
 	padding: 0 30%;
-	height: 100%;
 	color: var(--white);
 	text-align: center;
 	text-shadow: 2px 2px var(--black);
+	margin-bottom: 50px;
 }
 .about-image{
 	border-radius: 50%;
@@ -111,7 +111,15 @@ html, body{
 	height: 100%;
 	background-color: var(--two);
 }
-
+.about-resume{
+	margin: 0 10%;
+	margin-bottom: 50px;
+	height: 100%;
+	width: 80%
+	color: var(--white);
+	text-align: center;
+	text-shadow: 2px 2px var(--black);
+}
 
 
 
