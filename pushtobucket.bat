@@ -1,1 +1,1 @@
-gsutil rsync -r -x \.git \.idea . gs://joshhess.info/
+gsutil rsync -rd -x \.git . gs://joshhess.info/
