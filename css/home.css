@@ -133,6 +133,7 @@ ul li:hover a {
 .intro-content{
 	background-color: var(--primary-color);
 	height: 50px;
+	text-align: center;
 }
 
 .center-title {
@@ -150,8 +151,23 @@ ul li:hover a {
   -o-background-size: cover;
   background-size: cover;
 }
+.content-body {
+	background-color: rgba(200, 200, 200, 0.6);
+	border-radius: 25px;
+	height: 80%;
+	width: 80%;
+	margin: 0 auto;
+}
+.content-text-box{
+		padding: 10% 10%;
+		height: 20%;
+		vertical-align: middle;
+		text-align: center;
+}
 .menu-bar {
 	font-size: 16px;
+}
+.text{
 }
 /* Small Desktops */
 @media (min-width: 768px) and (max-width: 1096px) {

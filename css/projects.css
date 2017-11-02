@@ -86,18 +86,14 @@ ul li:hover a {
 }
 
 .projects-title{
-	background-color: var(--three);
-	background-image: url(../images/porter-live-400.jpg);
 	height: 400px;
-	padding-top: 100px;
-	padding-bottom: 100px;
+	background-image: url(../images/porter-live-400.jpg);
   background-repeat: no-repeat;
-  background-position: 40% 0%;
   background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
 }
 .projects-title h1 {
 	text-align:center;
@@ -113,6 +109,7 @@ ul li:hover a {
 	height: auto;
 	padding-left: 100px;
 	padding-right: 100px;
+	margin-bottom: 94px;
 }
 
 .projects-body{
