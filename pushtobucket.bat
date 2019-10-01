@@ -1,1 +1,0 @@
-gsutil rsync -rd -x \.git . gs://joshhess.info/
