@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Title from './home/Title';
-import Projects from './home/Projects';
-import About from './home/About';
-import Social from './home/Social';
+import Title from '../components/home/Title';
+import Projects from '../components/home/Projects';
+import About from '../components/home/About';
+import Social from '../components/home/Social';
 
 export default {
     name: "Home",
