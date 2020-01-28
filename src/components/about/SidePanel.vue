@@ -146,8 +146,9 @@ export default {
 <style scoped>
 .sidepanel {
 	background-color: #16151c;
-	height: 100%;
+	/* height: 100%; */
 	width: 280px;
+	/* flex-basis: 0; */
 }
 img {
 	width: 100%;

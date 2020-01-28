@@ -2,10 +2,10 @@
 	<div class="resume-body">
 		<h1>Josh Hess</h1>
 		<h2>Sofware Engineer</h2>
-		<h3>Experience</h3>
-		<ContentCard v-for="exp in experiences" v-bind:key="exp.id" :title="exp.title" :subtitle="exp.subtitle" :body="exp.body" />
 		<h3>Education</h3>
 		<ContentCard v-for="exp in education" v-bind:key="exp.id" :title="exp.title" :subtitle="exp.subtitle" :body="exp.body" />
+		<h3>Experience</h3>
+		<ContentCard v-for="exp in experiences" v-bind:key="exp.id" :title="exp.title" :subtitle="exp.subtitle" :body="exp.body" />
 	</div>
 </template>
 
@@ -59,9 +59,15 @@ export default {
 			education: [
 				{
 					id: "suu",
-					title: "Computer Science",
+					title: "Bachelor of Science - Southern Utah University",
 					subtitle: "August 2015 - April 2020",
-					body: ""
+					body: "Majoring in Pure Mathematics - Minoring in Philosophy"
+				},
+				{
+					id: "suu",
+					title: "Bachelor of Science - Southern Utah University",
+					subtitle: "August 2015 - April 2020",
+					body: "Majoring in Computer Science"
 				},
 			]
 		};
@@ -73,7 +79,6 @@ export default {
 .resume-body{
 	padding: 25px;
 	width: calc(100% - 50px);
-	height: auto;
 }
 h1 {
 	color: rgba(0, 0, 0, 0.7);
