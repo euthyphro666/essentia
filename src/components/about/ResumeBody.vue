@@ -10,6 +10,15 @@
 </template>
 
 <script>
+/**
+
+	Maybe add highschool
+	Probably don't put description
+	Probably nic the laundary
+	Certifications,
+	
+
+**/
 import ContentCard from "./ContentCard";
 export default {
 	name: "ResumeBody",
@@ -58,17 +67,22 @@ export default {
 			],			
 			education: [
 				{
-					id: "suu",
+					id: "suu-math",
 					title: "Bachelor of Science - Southern Utah University",
 					subtitle: "August 2015 - April 2020",
 					body: "Majoring in Pure Mathematics - Minoring in Philosophy"
 				},
 				{
-					id: "suu",
+					id: "suu-cs",
 					title: "Bachelor of Science - Southern Utah University",
 					subtitle: "August 2015 - April 2020",
 					body: "Majoring in Computer Science"
 				},
+			],
+			awards: [
+				{
+					id: ""
+				}
 			]
 		};
 	}
