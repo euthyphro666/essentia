@@ -136,13 +136,19 @@
 					{
 						id: 'ts',
 						icon: LanguageTypescript,
-						description: 'Type Script',
+						description: 'TypeScript',
 						proficiency: 'Adept',
 					},
 					{
 						id: 'js',
 						icon: LanguageJavascript,
-						description: 'Java Script',
+						description: 'JavaScript',
+						proficiency: 'Adept',
+					},
+					{
+						id: 'cpp',
+						icon: LanguageCpp,
+						description: 'C Plus Plus',
 						proficiency: 'Advanced',
 					},
 					{
@@ -152,21 +158,15 @@
 						proficiency: 'Advanced',
 					},
 					{
-						id: 'cpp',
-						icon: LanguageCpp,
-						description: 'C Plus Plus',
+						id: 'kotlin',
+						icon: Script,
+						description: 'Kotlin',
 						proficiency: 'Advanced',
 					},
 					{
 						id: 'html5',
 						icon: LanguageHtml5,
-						description: 'HTML & CSS',
-						proficiency: 'Advanced',
-					},
-					{
-						id: 'batch',
-						icon: Script,
-						description: 'Batch Shell',
+						description: 'HTML / CSS',
 						proficiency: 'Advanced',
 					},
 					{
@@ -176,10 +176,16 @@
 						proficiency: 'Advanced',
 					},
 					{
+						id: 'batch',
+						icon: Script,
+						description: 'Batch / Shell',
+						proficiency: 'Advanced',
+					},
+					{
 						id: 'ci',
 						icon: Cogs,
-						description: 'CI/CD',
-						proficiency: 'Gitlab Github',
+						description: 'CI / CD (Gitlab)',
+						proficiency: 'Advanced',
 					},
 					{
 						id: 'java',
@@ -228,7 +234,7 @@
 					{
 						id: 'wpf',
 						icon: Xaml,
-						description: 'WPF/ Forms',
+						description: 'WPF / Forms',
 						proficiency: 'Heavy',
 					},
 					{
@@ -240,7 +246,19 @@
 					{
 						id: 'mono',
 						icon: XDA,
-						description: 'Mono game',
+						description: 'MonoGame',
+						proficiency: 'Medium',
+					},
+					{
+						id: 'gdx',
+						icon: LibraryShelves,
+						description: 'LibGDX',
+						proficiency: 'Medium',
+					},
+					{
+						id: 'cv',
+						icon: LibraryShelves,
+						description: 'OpenCV',
 						proficiency: 'Medium',
 					},
 					{
@@ -253,12 +271,6 @@
 						id: 'direct',
 						icon: LibraryShelves,
 						description: 'Direct X',
-						proficiency: 'Light',
-					},
-					{
-						id: 'gdx',
-						icon: LibraryShelves,
-						description: 'LibGDX',
 						proficiency: 'Light',
 					},
 					{

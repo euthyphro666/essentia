@@ -7,23 +7,32 @@
 				mean time feel free to visit my GitHub account.
 			</div>
 		</div>
-		<div class="card github">
+		<div
+			class="card github"
+			@click="onClick('https://www.github.com/euthyphro666')"
+		>
 			<Github />
 			<div class="title githubfg">GitHub</div>
 		</div>
 	</div>
 </template>
 
-<script>
+<script lang="ts">
+	import { Component, Prop, Vue } from 'vue-property-decorator';
 	import Github from 'vue-material-design-icons/GithubCircle.vue';
 	import Tools from 'vue-material-design-icons/Tools.vue';
-	export default {
-		name: 'Social',
+
+	@Component({
 		components: {
 			Github,
 			Tools,
 		},
-	};
+	})
+	export default class Projects extends Vue {
+		private onClick(path: string): void {
+			window.location.href = path;
+		}
+	}
 </script>
 
 <style scoped>
