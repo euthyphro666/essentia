@@ -1,29 +1,11 @@
-# essentiaredux
+# Essentia
 
-## Project setup
-```
-npm install
-```
+Essentia is the project behind my personal website, joshhess.info. 
+As of now, the website only includes social media links and a resume
+page. In the future, I plan on adding a portfolio page and fleshing
+out an actual about page. It turns out one of the hardest parts of doing
+this is wrangling screenshots and information about all the projects I've 
+worked on.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+The project is made using Vue with Typescript. It's hosted in the cloude
+using Google's App Engine, hence the App.yaml and cloudbuild.yaml files.
