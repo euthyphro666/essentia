@@ -29,19 +29,19 @@
 </template>
 
 <script lang="ts">
-	import { Component, Prop, Vue } from 'vue-property-decorator';
-	import Github from 'vue-material-design-icons/GithubCircle.vue';
-	import Linkedin from 'vue-material-design-icons/Linkedin.vue';
-	import Twitter from 'vue-material-design-icons/Twitter.vue';
-	import Gmail from 'vue-material-design-icons/Gmail.vue';
+	import { Component, Vue } from "vue-property-decorator";
+	import Github from "vue-material-design-icons/Github.vue";
+	import Linkedin from "vue-material-design-icons/Linkedin.vue";
+	import Twitter from "vue-material-design-icons/Twitter.vue";
+	import Gmail from "vue-material-design-icons/Gmail.vue";
 
 	@Component({
 		components: {
 			Github,
 			Linkedin,
 			Twitter,
-			Gmail,
-		},
+			Gmail
+		}
 	})
 	export default class Social extends Vue {
 		private onClick(path: string): void {

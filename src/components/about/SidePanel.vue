@@ -45,7 +45,7 @@
 	import Phone from 'vue-material-design-icons/Phone.vue';
 	import Email from 'vue-material-design-icons/Email.vue';
 	import Web from 'vue-material-design-icons/Web.vue';
-	import Github from 'vue-material-design-icons/GithubCircle.vue';
+	import Github from 'vue-material-design-icons/Github.vue';
 	import Linkedin from 'vue-material-design-icons/Linkedin.vue';
 
 	import LanguageCpp from 'vue-material-design-icons/LanguageCpp.vue';
@@ -69,8 +69,8 @@
 	import Microsoft from 'vue-material-design-icons/Microsoft.vue';
 	import Angular from 'vue-material-design-icons/Angular.vue';
 	import Google from 'vue-material-design-icons/Google.vue';
-	import XDA from 'vue-material-design-icons/Xda.vue';
-	import Xaml from 'vue-material-design-icons/Xaml.vue';
+	// import XDA from 'vue-material-design-icons/Xda.vue';
+	import Xaml from 'vue-material-design-icons/LanguageXaml.vue';
 	import Database from 'vue-material-design-icons/Database.vue';
 
 	export default {
@@ -243,12 +243,12 @@
 						description: 'Unity',
 						proficiency: 'Heavy',
 					},
-					{
-						id: 'mono',
-						icon: XDA,
-						description: 'MonoGame',
-						proficiency: 'Medium',
-					},
+					// {
+					// 	id: 'mono',
+					// 	icon: XDA,
+					// 	description: 'MonoGame',
+					// 	proficiency: 'Medium',
+					// },
 					{
 						id: 'gdx',
 						icon: LibraryShelves,

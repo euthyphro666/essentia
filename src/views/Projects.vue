@@ -1,32 +1,83 @@
 <template>
-	<div class="social">
-		<div class="card message">
-			<Tools />
-			<div class="title messagefg">
-				Sorry! The project portfolio is still under construction. In the
-				mean time feel free to visit my GitHub account.
-			</div>
-		</div>
-		<div
-			class="card github"
-			@click="onClick('https://www.github.com/euthyphro666')"
-		>
-			<Github />
-			<div class="title githubfg">GitHub</div>
+	<div class="container">
+		<div class="projects">
+			<Header
+				title="Projects"
+				subtitle="Josh Hess"
+				body="My portfolio of projects I've been working on over my career as a developer, student, and hobyist."
+				:isAlt="false"
+			/>
+			<Card
+				title="Disregard That"
+				subtitle="Podcast Website"
+				body="Here "
+				:isAlt="true"
+			/>
+			<Card
+				title="Spectrum"
+				subtitle="D&D Mapmaker Website"
+				body="Here "
+				:isAlt="false"
+			/>
+			<Card
+				title="Axiomatize That"
+				subtitle="Math Game Website"
+				body="Here "
+				:isAlt="true"
+			/>
+			<Card
+				title="Aphelion Website"
+				subtitle="Math Game Website"
+				body="Here "
+				:isAlt="false"
+			/>
+			<Card
+				title="Media Suite"
+				subtitle="Streaming solution for CGM."
+				body="Here "
+				:isAlt="true"
+			/>
+			<Card
+				title="Card Peeping"
+				subtitle="Code Jam Project"
+				body="Here "
+				:isAlt="false"
+			/>
+			<Card
+				title="Divine Intervention"
+				subtitle="Code Jam Project"
+				body="Here "
+				:isAlt="true"
+			/>
+			<Card
+				title="Identity Crisis"
+				subtitle="Math Game Website"
+				body="Here "
+				:isAlt="false"
+			/>
+			<Card
+				title="VR Network Simulation"
+				subtitle="Code Jam Project"
+				body="Here "
+				:isAlt="true"
+			/>
+			<Card title="" subtitle="" body="Here " :isAlt="false" />
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-	import { Component, Prop, Vue } from 'vue-property-decorator';
-	import Github from 'vue-material-design-icons/GithubCircle.vue';
-	import Tools from 'vue-material-design-icons/Tools.vue';
+	import { Component, Vue } from "vue-property-decorator";
+	import Github from "vue-material-design-icons/Github.vue";
+	import Tools from "vue-material-design-icons/Tools.vue";
+	import Header from "../components/projects/Header.vue";
+	import Card from "../components/projects/Card.vue";
 
 	@Component({
 		components: {
-			Github,
-			Tools,
-		},
+			Header,
+			Card
+		}
 	})
 	export default class Projects extends Vue {
 		private onClick(path: string): void {
@@ -36,11 +87,14 @@
 </script>
 
 <style scoped>
-	.social {
+	.container {
+		height: 100%;
+		overflow-y: scroll;
+	}
+	.projects {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		height: 100%;
 	}
 	.card {
 		display: flex;
@@ -65,34 +119,5 @@
 		height: 100%;
 		width: 100%;
 		color: #bebfc1;
-	}
-
-	.github {
-		background: #24292e;
-		height: calc(100% - 128px);
-	}
-	.github:hover {
-		background: #3f4448;
-	}
-	.githubfg {
-		color: #bebfc1;
-	}
-
-	.message {
-		background: #bebfc1;
-		height: 128px;
-	}
-	.messagefg {
-		color: #24292e;
-		margin: 10px;
-		margin-right: 50px;
-		font-size: 1.2em;
-	}
-	.message > .material-design-icon {
-		height: 64px;
-		margin-left: 25px;
-	}
-	.message > .material-design-icon > svg {
-		color: #24292e;
 	}
 </style>

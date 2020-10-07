@@ -12,8 +12,8 @@
 		props: {
 			title: String,
 			subtitle: String,
-			body: String
-		}
+			body: String,
+		},
 	};
 </script>
 

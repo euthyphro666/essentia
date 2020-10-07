@@ -30,7 +30,7 @@
 </template>
 
 <script>
-	import HomeTile from '@/components/home/HomeTile.vue';
+	import HomeTile from '../components/home/HomeTile.vue';
 
 	export default {
 		name: 'Home',
