@@ -1,0 +1,130 @@
+[
+	{
+		"year": 2016,
+		"month": 4,
+		"title": "Network Simulation",
+		"subtitle": "Code Jam",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2017,
+		"month": 10,
+		"title": "Slot Game",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2017,
+		"month": 10,
+		"title": "Divine Intervention",
+		"subtitle": "Code Jam",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2017,
+		"month": 11,
+		"title": "Crypto Tools",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2017,
+		"month": 12,
+		"title": "Demo Game",
+		"subtitle": "Personal Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2018,
+		"month": 3,
+		"title": "Identity Crisis",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2018,
+		"month": 4,
+		"title": "FTL Clone",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2018,
+		"month": 6,
+		"title": "Game Server",
+		"subtitle": "Work Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2018,
+		"month": 7,
+		"title": "Card Peeping",
+		"subtitle": "Work Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2019,
+		"month": 5,
+		"title": "Gin Engine",
+		"subtitle": "Personal Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2019,
+		"month": 7,
+		"title": "Media Suite",
+		"subtitle": "Work Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2019,
+		"month": 11,
+		"title": "Face 2 Face",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2020,
+		"month": 2,
+		"title": "Aphelion",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2020,
+		"month": 3,
+		"title": "Axiomatize",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2020,
+		"month": 4,
+		"title": "Spectrum",
+		"subtitle": "University Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	},
+	{
+		"year": 2020,
+		"month": 10,
+		"title": "Disregard That",
+		"subtitle": "Personal Project",
+		"description:": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.",
+		"image:": "no-image.jpg"
+	}
+]

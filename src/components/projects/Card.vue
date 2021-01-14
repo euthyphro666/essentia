@@ -1,8 +1,17 @@
 <template>
-	<div :class="{ 'alt-header': isAlt, header: !isAlt }">
-		<h1>{{ title }}</h1>
-		<h2>{{ subtitle }}</h2>
-		<p>{{ body }}</p>
+	<div :class="['demo-card', `demo-card--step${number}`]">
+		<div class="head">
+			<div class="number-box">
+				<span>{{ date }}</span>
+			</div>
+			<h2>
+				<span class="small">{{ subtitle }}</span> {{ title }}
+			</h2>
+		</div>
+		<div class="body">
+			<p>{{ description }}</p>
+			<img :src="require(`../../assets/portfolio/${imageUrl}`)" />
+		</div>
 	</div>
 </template>
 
@@ -12,46 +21,10 @@
 		props: {
 			title: String,
 			subtitle: String,
-			body: String,
-			isAlt: Boolean
+			date: String,
+			description: String,
+			imageUrl: String,
+			number: String
 		}
 	};
 </script>
-
-<style scoped>
-	.header {
-		/* background-color: #ffffff; */
-		padding: 30px;
-		margin: 8px;
-	}
-	.alt-header {
-		background-color: #838383;
-		box-shadow: 0px 8px 12px 0px rgb(41, 41, 41);
-		padding: 30px;
-	}
-	h1 {
-		color: rgba(0, 0, 0, 0.7);
-		font-size: 1.4em;
-		width: auto;
-		text-align: center;
-		font-weight: 100;
-	}
-	h2 {
-		color: rgba(63, 61, 60, 0.71);
-		font-size: 11px;
-		width: auto;
-		text-align: center;
-		/* letter-spacing: 6px; */
-		font-weight: 200;
-		text-transform: uppercase;
-	}
-	p {
-		color: #838383;
-		margin: auto;
-		margin-top: 10px;
-		font-size: 13px;
-		width: auto;
-		text-align: center;
-		max-width: 800px;
-	}
-</style>
