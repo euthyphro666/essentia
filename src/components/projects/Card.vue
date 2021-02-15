@@ -1,30 +1,45 @@
 <template>
-	<div :class="['demo-card', `demo-card--step${number}`]">
-		<div class="head">
-			<div class="number-box">
-				<span>{{ date }}</span>
-			</div>
-			<h2>
-				<span class="small">{{ subtitle }}</span> {{ title }}
-			</h2>
-		</div>
-		<div class="body">
-			<p>{{ description }}</p>
-			<img :src="require(`../../assets/portfolio/${imageUrl}`)" />
-		</div>
+	<div class="card">
+		<div class="card-header">{{ title }}</div>
+		<img :src="require(`../../assets/portfolio/${imageUrl}`)" />
+		<div class="card-body">{{ description }}</div>
 	</div>
 </template>
 
-<script>
-	export default {
-		name: "Card",
-		props: {
-			title: String,
-			subtitle: String,
-			date: String,
-			description: String,
-			imageUrl: String,
-			number: String
-		}
-	};
+<script lang="ts">
+	import { Component, Vue, Prop } from "vue-property-decorator";
+	@Component({
+		components: {}
+	})
+	export default class Card extends Vue {
+		@Prop({ default: "Title" })
+		public title!: string;
+		@Prop({ default: "Subtitle" })
+		public subtitle!: string;
+		@Prop({ default: "JAN" })
+		public date!: string;
+		@Prop({ default: "Description." })
+		public description!: string;
+		@Prop({ default: "no-image.jpg" })
+		public imageUrl!: string;
+	}
 </script>
+
+<style scoped>
+	.card {
+		width: 80%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.card-header {
+		height: 10vh;
+		vertical-align: center;
+	}
+	img {
+		height: 60vh;
+	}
+	.card-body {
+	}
+</style>
