@@ -1,28 +1,34 @@
 <template>
 	<div id="projects">
-		<h1>Josh Hess</h1>
+		<!-- <h1>Josh Hess</h1> -->
 		<div class="body">
 			<div class="panel">
 				<div
-					v-for="y in getProjectYears()"
-					:key="y"
+					v-for="(y, i) in getProjectYears()"
+					:key="i"
 					@click="onYearClick(y)"
 					class="filter"
-					:class="{ activeFilter: isYearActive(y) }"
+					:class="{
+						activeFilter: isYearActive(y),
+						topBorder: i == 0
+					}"
 				>
-					{{ y }}
+					<div class="filterText">
+						{{ y }}
+					</div>
 				</div>
 			</div>
-			<div class="timeline-container">
+			<div class="timeline-container" ref="scrollable">
 				<div class="timeline">
 					<Card
 						v-for="i in getProjectInfo()"
 						:key="i.title"
 						:title="i.title"
 						:subtitle="i.subtitle"
-						:date="i.month"
-						:description="i.description"
-						:imageUrl="i.image"
+						:date="monthToDate(i.month)"
+						:about="i.about"
+						:imageUrls="i.image"
+						:links="i.links"
 					/>
 				</div>
 			</div>
@@ -40,53 +46,124 @@
 		}
 	})
 	export default class Projects extends Vue {
-		private currentYear = 2020;
-		getProjectYears() {
+		private currentYear = 2021;
+		private months = [
+			"JAN",
+			"FEB",
+			"MAR",
+			"APR",
+			"MAY",
+			"JUN",
+			"JUL",
+			"AUG",
+			"SEP",
+			"OCT",
+			"NOV",
+			"DEC"
+		];
+
+		getProjectYears(): number[] {
 			const years = new Set(Info.map(i => i.year));
 			return [...years].reverse();
 		}
 		getProjectInfo() {
-			return Info.filter(i => i.year === this.currentYear);
+			return Info.filter(i => i.year === this.currentYear).sort(
+				(i1, i2) => i2.month - i1.month
+			);
 		}
-		isYearActive(year: number) {
+		isYearActive(year: number): boolean {
 			return year === this.currentYear;
 		}
-		onYearClick(year: number) {
+		onYearClick(year: number): void {
 			this.currentYear = year;
+			(this.$refs.scrollable as any).scrollTop = 0;
+		}
+		monthToDate(month: number): string {
+			// Info.json uses calendar month encoding
+			return this.months[month - 1];
 		}
 	}
 </script>
 
 <style scoped>
+	@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;600&display=swap");
+
 	.header {
 		height: 5vh;
 	}
 	.body {
 		display: flex;
 		flex-direction: row;
-		height: 95vh;
+		height: 100vh;
 	}
 	.panel {
-		width: 20%;
-		background-color: #aa1;
+		background-color: #1d1833;
+		width: 180px;
+	}
+	.title {
+		flex-direction: column;
+		align-items: center;
+	}
+	.titleText {
+		color: #00e676;
+		margin: auto;
+		text-align: center;
+		font-size: 4em;
+		font-weight: 600;
 	}
 	.timeline-container {
-		width: 80%;
+		background-color: #261d45;
+		width: calc(100% - 180px);
 		height: 100%;
 		overflow-y: scroll;
 	}
 	.timeline {
 		min-height: 100%;
-		background-color: #1c8;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
+	.topBorder {
+		border-top: 2px solid #00e676;
+	}
 	.filter {
-		background-color: #2bc;
+		background-color: #372963;
+		border-bottom: 2px solid #00e676;
+		color: #00e676;
 		cursor: pointer;
+		height: 4em;
+		display: flex;
+		align-items: center;
 	}
 	.activeFilter {
-		background-color: #a69;
+		background-color: #261d45;
+	}
+	.filterText {
+		margin: auto;
+		text-align: center;
+		font-size: 1.4em;
+		font-weight: 200;
+	}
+	@media only screen and (max-width: 1200px) {
+		.panel {
+			width: 120px;
+		}
+		.timeline-container {
+			width: calc(100% - 120px);
+		}
+		.filter {
+			height: 3.5em;
+		}
+	}
+	@media only screen and (max-width: 800px) {
+		.panel {
+			width: 70px;
+		}
+		.timeline-container {
+			width: calc(100% - 70px);
+		}
+		.filter {
+			height: 3em;
+		}
 	}
 </style>
