@@ -41,7 +41,7 @@
 </template>
 
 <script lang="ts">
-	import { Options, Vue, prop } from 'vue-class-component'
+	import { Options, Vue } from 'vue-class-component'
 	import Github from 'vue-material-design-icons/Github.vue'
 	import PlayCircle from 'vue-material-design-icons/PlayCircle.vue'
 	import Link from 'vue-material-design-icons/Link.vue'
@@ -60,7 +60,7 @@
 	})
 	export default class Card extends Vue.with(CardInfo) {
 		hasLinks(): boolean {
-			return this.links.length > 0
+			return this.links && this.links.length > 0
 		}
 
 		isMovie(image: string): boolean {

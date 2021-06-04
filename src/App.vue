@@ -17,31 +17,27 @@
 	export default class App extends Vue {}
 </script>
 
-<style>
+<style >
 	@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 	* {
 		margin: 0;
 		padding: 0;
 	}
-	html {
-		height: 100%;
-	}
-	body {
-		height: 100%;
-	}
 
 	#app {
 		font-family: Avenir, Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-		height: 100%;
+		height: 100vh;
 	}
 
 	.container {
-		display: flex;
-		flex-direction: row;
-		background-color: #282828;
-		height: 100%;
+		/* display: flex;
+		flex-direction: row; */
+		display: grid;
+		grid-template-columns: minmax(200px, 18%) auto;
+		background-color: #222831;
+		height: 100vh;
 	}
 </style>

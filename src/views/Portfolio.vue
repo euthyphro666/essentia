@@ -40,16 +40,6 @@
 	import Card from '../components/portfolio/Card.vue'
 	import Info from '../assets/portfolio/info.json'
 
-	interface CardInfo {
-		year: number
-		month: number
-		title: string
-		subtitle: string
-		about: string
-		image: string[]
-		links: string[]
-	}
-
 	@Options({
 		components: {
 			Card,
@@ -73,23 +63,26 @@
 		]
 
 		getProjectYears(): number[] {
-			const info = Info as CardInfo[]
-			const years = new Set(info.map((i: CardInfo) => i.year))
+			const years = new Set(Info.map((i) => i.year))
 			return [...years].reverse()
 		}
+
 		getProjectInfo() {
-			const info = Info as CardInfo[]
-			return info
-				.filter((i: CardInfo) => i.year === this.currentYear)
+			return Info
+				.filter((i) => i.year === this.currentYear)
 				.sort((i1, i2) => i2.month - i1.month)
 		}
+
 		isYearActive(year: number): boolean {
 			return year === this.currentYear
 		}
+
 		onYearClick(year: number): void {
 			this.currentYear = year
-			;(this.$refs.scrollable as any).scrollTop = 0
+			const scrollable = this.$refs.scrollable as any 
+			scrollable.scrollTop = 0
 		}
+
 		monthToDate(month: number): string {
 			// Info.json uses calendar month encoding
 			return this.months[month - 1]
@@ -101,14 +94,15 @@
 	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;600&display=swap');
 
 	.portfolio {
-		width: 100%;
+		/* width: 100%; */
 	}
 	.header {
 		height: 5vh;
 	}
 	.body {
-		display: flex;
-		flex-direction: row;
+		/* display: flex; */
+		/* flex-direction: row; */
+		grid-template-columns: minmax(80px, 10%) auto;
 		height: 100vh;
 	}
 	.panel {

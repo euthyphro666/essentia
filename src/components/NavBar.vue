@@ -3,11 +3,11 @@
 		class="nav-bar"
 		:class="{ 'nav-bar-collapsed': collapsed, 'nav-bar-full': !collapsed }"
 	>
-		<div class="title">JOSH<br />HESS</div>
-		<div class="item" @click="onClick('portfolio')">Portfolio</div>
-		<div class="item" @click="onClick('resume')">Resume</div>
-		<div class="item" @click="onClick('prose')">Prose</div>
-		<div class="item" @click="onClick('plugs')">Plugs</div>
+		<div class="nav-bar-title">JOSH<br />HESS</div>
+		<div class="nav-bar-item" @click="onClick('portfolio')">Portfolio</div>
+		<div class="nav-bar-item" @click="onClick('resume')">Resume <u>↓</u></div>
+		<div class="nav-bar-item" @click="onClick('prose')">Prose</div>
+		<div class="nav-bar-item" @click="onClick('plugs')">Plugs</div>
 	</div>
 </template>
 
@@ -29,28 +29,27 @@
 	.nav-bar {
 		color: #dfdfdf;
 		font-family: 'VT323', monospace;
+		display: flex;
+		flex-direction: column;
+		margin: 3em auto;
+		
 	}
 	.nav-bar-collapsed {
-		padding: 2em 6em;
-		width: auto;
-		/* background-color: #1e1e1e; */
+		/* padding: 2em 6em; */
 	}
 	.nav-bar-full {
 		position: absolute;
 		left: 50%;
 		top: 25%;
 		transform: translate(-50%, 0);
-		/* background-color: #1e1e1e; */
 	}
-	.title {
-		margin-top: 0.5em;
-		/* padding: 0 2em; */
+	.nav-bar-title {
+		/* margin-top: 0.5em; */
 		font-size: 4em;
 		white-space: pre;
 	}
-	.item {
-		margin-top: 0.5em;
-		/* padding: 0 4em; */
+	.nav-bar-item {
+		/* margin-top: 0.5em; */
 		font-size: 2em;
 		cursor: pointer;
 	}
