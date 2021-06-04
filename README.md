@@ -1,2 +1,24 @@
-# Essentia
-Here lies everything me related. Within this repo is a vue project containing my resume and portfolio. Not much else to say here other than the website is currently being hosted with the Google Compute Engine at [joshhess.info](https://joshhess.info). Cheers!
+# essentia-redux
+
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

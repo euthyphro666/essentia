@@ -1,6 +1,5 @@
 <template>
-	<div id="projects">
-		<!-- <h1>Josh Hess</h1> -->
+	<div id="portfolio">
 		<div class="body">
 			<div class="panel">
 				<div
@@ -10,7 +9,7 @@
 					class="filter"
 					:class="{
 						activeFilter: isYearActive(y),
-						topBorder: i == 0
+						topBorder: i == 0,
 					}"
 				>
 					<div class="filterText">
@@ -37,57 +36,73 @@
 </template>
 
 <script lang="ts">
-	import { Component, Vue } from "vue-property-decorator";
-	import Card from "../components/projects/Card.vue";
-	import Info from "../assets/portfolio/info.json";
-	@Component({
+	import { Options, Vue } from 'vue-class-component'
+	import Card from '../components/portfolio/Card.vue'
+	import Info from '../assets/portfolio/info.json'
+
+	interface CardInfo {
+		year: number
+		month: number
+		title: string
+		subtitle: string
+		about: string
+		image: string[]
+		links: string[]
+	}
+
+	@Options({
 		components: {
-			Card
-		}
+			Card,
+		},
 	})
 	export default class Projects extends Vue {
-		private currentYear = 2021;
+		private currentYear = 2021
 		private months = [
-			"JAN",
-			"FEB",
-			"MAR",
-			"APR",
-			"MAY",
-			"JUN",
-			"JUL",
-			"AUG",
-			"SEP",
-			"OCT",
-			"NOV",
-			"DEC"
-		];
+			'JAN',
+			'FEB',
+			'MAR',
+			'APR',
+			'MAY',
+			'JUN',
+			'JUL',
+			'AUG',
+			'SEP',
+			'OCT',
+			'NOV',
+			'DEC',
+		]
 
 		getProjectYears(): number[] {
-			const years = new Set(Info.map(i => i.year));
-			return [...years].reverse();
+			const info = Info as CardInfo[]
+			const years = new Set(info.map((i: CardInfo) => i.year))
+			return [...years].reverse()
 		}
 		getProjectInfo() {
-			return Info.filter(i => i.year === this.currentYear).sort(
-				(i1, i2) => i2.month - i1.month
-			);
+			const info = Info as CardInfo[]
+			return info
+				.filter((i: CardInfo) => i.year === this.currentYear)
+				.sort((i1, i2) => i2.month - i1.month)
 		}
 		isYearActive(year: number): boolean {
-			return year === this.currentYear;
+			return year === this.currentYear
 		}
 		onYearClick(year: number): void {
-			this.currentYear = year;
-			(this.$refs.scrollable as any).scrollTop = 0;
+			this.currentYear = year
+			;(this.$refs.scrollable as any).scrollTop = 0
 		}
 		monthToDate(month: number): string {
 			// Info.json uses calendar month encoding
-			return this.months[month - 1];
+			return this.months[month - 1]
 		}
 	}
 </script>
 
 <style scoped>
-	@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;600&display=swap");
+	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;600&display=swap');
 
+	.portfolio {
+		width: 100%;
+	}
 	.header {
 		height: 5vh;
 	}

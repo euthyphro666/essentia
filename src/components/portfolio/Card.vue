@@ -41,50 +41,44 @@
 </template>
 
 <script lang="ts">
-	import { Component, Vue, Prop } from "vue-property-decorator";
-	import Github from "vue-material-design-icons/Github.vue";
-	import PlayCircle from "vue-material-design-icons/PlayCircle.vue";
-	import Link from "vue-material-design-icons/Link.vue";
-	@Component({
-		components: { Github, PlayCircle, Link }
-	})
-	export default class Card extends Vue {
-		@Prop({ default: "Title" })
-		public title!: string;
-		@Prop({ default: "Subtitle" })
-		public subtitle!: string;
-		@Prop({ default: "January" })
-		public date!: string;
-		@Prop({ default: "Description." })
-		public about!: string;
-		@Prop({ default: () => [] })
-		public imageUrls!: string;
-		@Prop({ default: () => [] })
-		public links!: [string, string][];
+	import { Options, Vue, prop } from 'vue-class-component'
+	import Github from 'vue-material-design-icons/Github.vue'
+	import PlayCircle from 'vue-material-design-icons/PlayCircle.vue'
+	import Link from 'vue-material-design-icons/Link.vue'
 
+	export class CardInfo {
+		public title!: string
+		public subtitle!: string
+		public date!: string
+		public about!: string
+		public imageUrls!: string
+		public links!: [string, string][]
+	}
+
+	@Options({
+		components: { Github, PlayCircle, Link },
+	})
+	export default class Card extends Vue.with(CardInfo) {
 		hasLinks(): boolean {
-			return this.links.length > 0;
+			return this.links.length > 0
 		}
 
 		isMovie(image: string): boolean {
-			const ext = image.split(".")[1];
-			return ext.toLowerCase() === "mp4";
+			const ext = image.split('.')[1]
+			return ext.toLowerCase() === 'mp4'
 		}
 
 		isLink(image: string): boolean {
-			const prefix = image.split(":")[0];
-			return (
-				prefix.toLowerCase() === "https" ||
-				prefix.toLowerCase() === "http"
-			);
+			const prefix = image.split(':')[0]
+			return prefix.toLowerCase() === 'https' || prefix.toLowerCase() === 'http'
 		}
 
 		onClick(path: string): void {
-			window.open(path, "_blank");
+			window.open(path, '_blank')
 		}
 
 		getEmptyArray(): [] {
-			return [];
+			return []
 		}
 	}
 </script>

@@ -1,33 +1,47 @@
 <template>
-	<div id="app">
+	<div class="container">
+		<NavBar />
 		<router-view />
 	</div>
 </template>
 
+<script lang="ts">
+	import { Options, Vue } from 'vue-class-component'
+	import NavBar from '@/components/NavBar.vue'
+
+	@Options({
+		components: {
+			NavBar,
+		},
+	})
+	export default class App extends Vue {}
+</script>
+
 <style>
+	@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 	* {
-		padding: 0;
 		margin: 0;
-		overflow: hidden;
+		padding: 0;
 	}
-
 	html {
-		width: 100vw;
-		height: 100vh;
+		height: 100%;
 	}
-
-	#app {
-		font-family: 'Montserrat', sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-align: center;
-		color: #2c3e50;
-		width: 100%;
+	body {
 		height: 100%;
 	}
 
-	body {
-		width: 100%;
+	#app {
+		font-family: Avenir, Helvetica, Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		height: 100%;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		background-color: #282828;
 		height: 100%;
 	}
 </style>
