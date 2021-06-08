@@ -1,91 +1,80 @@
 <template>
-	<div id="portfolio">
-		<div class="body">
-			<div class="panel">
-				<div
-					v-for="(y, i) in getProjectYears()"
-					:key="i"
-					@click="onYearClick(y)"
-					class="filter"
-					:class="{
-						activeFilter: isYearActive(y),
-						topBorder: i == 0,
-					}"
-				>
-					<div class="filterText">
-						{{ y }}
-					</div>
+	<div class="portfolio">
+		<div class="year-panel">
+			<div
+				v-for="(y, i) in getProjectYears()"
+				:key="i"
+				@click="onYearClick(y)"
+				class="filter"
+				:class="{ activeFilter: isYearActive(y) }"
+			>
+				<div class="filter-text">
+					{{ y }}
 				</div>
 			</div>
-			<div class="timeline-container" ref="scrollable">
-				<div class="timeline">
-					<Card
-						v-for="i in getProjectInfo()"
-						:key="i.title"
-						:title="i.title"
-						:subtitle="i.subtitle"
-						:date="monthToDate(i.month)"
-						:about="i.about"
-						:imageUrls="i.image"
-						:links="i.links"
-					/>
-				</div>
+		</div>
+		<div class="timeline-container" ref="scrollable">
+			<div class="timeline">
+				<PortfolioCard
+					v-for="info in getProjectInfo()"
+					:key="info.title"
+					:info="info"
+				/>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script lang="ts">
-	import { Options, Vue } from 'vue-class-component'
-	import Card from '../components/portfolio/Card.vue'
-	import Info from '../assets/portfolio/info.json'
+	import { Options, Vue } from 'vue-class-component';
+	import PortfolioCard, {
+		CardInfo,
+	} from '../components/portfolio/PortfolioCard.vue';
+	import Info from '../assets/portfolio/info.json';
 
 	@Options({
 		components: {
-			Card,
+			PortfolioCard,
 		},
 	})
 	export default class Projects extends Vue {
-		private currentYear = 2021
-		private months = [
-			'JAN',
-			'FEB',
-			'MAR',
-			'APR',
-			'MAY',
-			'JUN',
-			'JUL',
-			'AUG',
-			'SEP',
-			'OCT',
-			'NOV',
-			'DEC',
-		]
+		private currentYear = 2021;
+		private cardInfo!: CardInfo[];
 
-		getProjectYears(): number[] {
-			const years = new Set(Info.map((i) => i.year))
-			return [...years].reverse()
+		beforeMount(): void {
+			this.cardInfo = Info.map((i) => {
+				return {
+					title: i.title,
+					subtitle: i.subtitle,
+					year: i.year,
+					month: i.month,
+					about: i.about,
+					imageUrls: i.image ? i.image : [],
+					tags: i.tags ? i.tags : [],
+					links: i.links ? i.links : [],
+				} as CardInfo;
+			});
 		}
 
-		getProjectInfo() {
-			return Info
+		getProjectYears(): number[] {
+			const years = new Set(Info.map((i) => i.year));
+			return [...years].reverse();
+		}
+
+		getProjectInfo(): CardInfo[] {
+			return this.cardInfo
 				.filter((i) => i.year === this.currentYear)
-				.sort((i1, i2) => i2.month - i1.month)
+				.sort((i1, i2) => i2.month - i1.month);
 		}
 
 		isYearActive(year: number): boolean {
-			return year === this.currentYear
+			return year === this.currentYear;
 		}
 
 		onYearClick(year: number): void {
-			this.currentYear = year
-			const scrollable = this.$refs.scrollable as any 
-			scrollable.scrollTop = 0
-		}
-
-		monthToDate(month: number): string {
-			// Info.json uses calendar month encoding
-			return this.months[month - 1]
+			this.currentYear = year;
+			const scrollable = this.$refs.scrollable as any;
+			scrollable.scrollTop = 0;
 		}
 	}
 </script>
@@ -94,67 +83,57 @@
 	@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;600&display=swap');
 
 	.portfolio {
-		/* width: 100%; */
-	}
-	.header {
-		height: 5vh;
-	}
-	.body {
-		/* display: flex; */
-		/* flex-direction: row; */
-		grid-template-columns: minmax(80px, 10%) auto;
-		height: 100vh;
-	}
-	.panel {
-		background-color: #1d1833;
-		width: 180px;
-	}
-	.title {
-		flex-direction: column;
-		align-items: center;
-	}
-	.titleText {
-		color: #00e676;
-		margin: auto;
-		text-align: center;
-		font-size: 4em;
-		font-weight: 600;
+		background-color: #ffd369;
+		display: grid;
+		/* grid-template-rows: 60px auto; */
+		height: 100%;
+		width: 100%;
 	}
 	.timeline-container {
-		background-color: #261d45;
-		width: calc(100% - 180px);
+		overflow-y: auto;
+		width: 100%;
 		height: 100%;
-		overflow-y: scroll;
+		padding-top: 60px;
 	}
 	.timeline {
-		min-height: 100%;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		background-color: #ffd369;
 	}
-	.topBorder {
-		border-top: 2px solid #00e676;
+
+	.year-panel {
+		position: absolute;
+		height: 60px;
+		left: 50%;
+		transform: translate(-25%, 0);
+		z-index: 2;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
 	}
 	.filter {
-		background-color: #372963;
-		border-bottom: 2px solid #00e676;
-		color: #00e676;
+		background-color: #eeeeee;
+		color: #393e46;
 		cursor: pointer;
-		height: 4em;
+		height: 40px;
 		display: flex;
 		align-items: center;
+		padding: 0 16px;
+		margin: 0 8px;
+		border-radius: 50px;
+		font-family: 'VT323', monospace;
+		text-align: center;
+		font-size: 2em;
+		font-weight: 800;
 	}
 	.activeFilter {
-		background-color: #261d45;
+		background-color: #b6b6b6;
 	}
-	.filterText {
-		margin: auto;
-		text-align: center;
-		font-size: 1.4em;
-		font-weight: 200;
-	}
+
 	@media only screen and (max-width: 1200px) {
-		.panel {
+		/* .panel {
 			width: 120px;
 		}
 		.timeline-container {
@@ -162,10 +141,10 @@
 		}
 		.filter {
 			height: 3.5em;
-		}
+		} */
 	}
 	@media only screen and (max-width: 800px) {
-		.panel {
+		/* .panel {
 			width: 70px;
 		}
 		.timeline-container {
@@ -173,6 +152,6 @@
 		}
 		.filter {
 			height: 3em;
-		}
+		} */
 	}
 </style>

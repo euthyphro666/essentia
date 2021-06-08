@@ -1,6 +1,6 @@
 <template>
 	<div class="test">
-		<div class="sidebar"></div>
+		<div class="year-bar"></div>
 		<div class="content">
 			<div class="card">Card 1</div>
 			<div class="card">Card 2</div>
@@ -22,19 +22,17 @@
 		background-color: blueviolet;
 		display: grid;
 		grid-template-rows: 60px auto;
+		height: 100%;
 	}
-
-	.sidebar {
-		background-color: #FFD369;
+	.year-bar {
+		background-color: #393E46;
 	}
-
 	.content {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		background-color: #FFD369;
 	}
-
 	.card {
 		flex: 0 1 500px;
 		margin: 5px;

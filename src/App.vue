@@ -1,5 +1,5 @@
 <template>
-	<div class="container">
+	<div class="content-container">
 		<NavBar />
 		<router-view />
 	</div>
@@ -32,12 +32,9 @@
 		height: 100vh;
 	}
 
-	.container {
-		/* display: flex;
-		flex-direction: row; */
-		display: grid;
-		grid-template-columns: minmax(200px, 18%) auto;
-		background-color: #222831;
-		height: 100vh;
+	.content-container {
+		height: 100%;
+		width: calc(100% - 220px);
+		margin-left: 220px;
 	}
 </style>
