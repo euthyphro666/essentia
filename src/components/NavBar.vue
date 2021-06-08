@@ -7,8 +7,8 @@
 			<div class="nav-bar-title">JOSH<br />HESS</div>
 			<div class="nav-bar-item" @click="onClick('portfolio')">Portfolio</div>
 			<div class="nav-bar-item" @click="onClick('resume')">Resume <u>↓</u></div>
-			<!-- <div class="nav-bar-item" @click="onClick('prose')">Prose</div>
-			<div class="nav-bar-item" @click="onClick('plugs')">Plugs</div> -->
+			<!-- <div class="nav-bar-item" @click="onClick('prose')">Prose</div> -->
+			<div class="nav-bar-item" @click="onClick('plugs')">Plugs</div>
 		</div>
 	</div>
 </template>
@@ -18,12 +18,33 @@
 
 	export default class NavBar extends Vue {
 		private collapsed = false;
+		beforeMount(): void {
+			this.$router.beforeEach((to, from, next) => {
+				console.log(`Before Route ${from.path} -> ${to.path}`);
+				if (to.path === '/') {
+					this.collapsed = false;
+					setTimeout(next, 1000);
+				} else {
+					if (from.path === '/') {
+						next();
+					} else {
+						this.collapsed = false;
+						setTimeout(() => {
+							next();
+							this.collapsed = true;
+						}, 1000);
+					}
+				}
+			});
+		}
 		onClick(item: string): void {
 			if (item === 'portfolio') {
 				this.$router.push('portfolio');
 				this.collapsed = true;
-			}
-			if (item === 'resume') {
+			} else if (item === 'plugs') {
+				this.$router.push('plugs');
+				this.collapsed = true;
+			} else if (item === 'resume') {
 				window.open(`${process.env.BASE_URL}resume-josh-hess.pdf`);
 			}
 		}
@@ -47,7 +68,7 @@
 		align-items: center;
 		justify-content: flex-start;
 
-		transition: 0.75s;
+		transition: 1s;
 	}
 	.nav-bar-collapsed {
 		width: 220px;
@@ -64,8 +85,9 @@
 		align-items: flex-start;
 	}
 	.nav-bar-title {
-		margin-bottom: 8px;
 		font-size: 4em;
+		line-height: 1em;
+		margin-bottom: 8px;
 		white-space: pre;
 	}
 	.nav-bar-item {

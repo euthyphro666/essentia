@@ -105,8 +105,8 @@
 	.year-panel {
 		position: absolute;
 		height: 60px;
-		left: 50%;
-		transform: translate(-25%, 0);
+		/* left: 50%;
+		transform: translate(-25%, 0); */
 		z-index: 2;
 		display: flex;
 		flex-direction: row;
@@ -114,7 +114,9 @@
 		justify-content: center;
 	}
 	.filter {
-		background-color: #eeeeee;
+		border: 3px solid #93a1af;
+		background-color: #5d6670;
+		border-style: outset;
 		color: #393e46;
 		cursor: pointer;
 		height: 40px;

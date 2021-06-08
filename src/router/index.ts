@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
-import Portfolio from '../views/Portfolio.vue'
-import Test from '../views/Test.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Home from '../views/Home.vue';
+import Portfolio from '../views/Portfolio.vue';
+import Plugs from '../views/Plugs.vue';
 
 const routes: Array<RouteRecordRaw> = [
 	{
@@ -14,11 +14,16 @@ const routes: Array<RouteRecordRaw> = [
 		name: 'Portfolio',
 		component: Portfolio,
 	},
-]
+	{
+		path: '/plugs',
+		name: 'Plugs',
+		component: Plugs,
+	},
+];
 
 const router = createRouter({
 	history: createWebHistory(process.env.BASE_URL),
 	routes,
-})
+});
 
-export default router
+export default router;

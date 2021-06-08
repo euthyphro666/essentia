@@ -314,9 +314,9 @@
 
 	.tags {
 		display: flex;
-		flex-direction: row;
+		flex-flow: row wrap;
 		justify-content: flex-start;
-		width: calc(100% - 6em);
+		width: calc(100% - 5em);
 		margin-bottom: 1em;
 	}
 
@@ -330,7 +330,8 @@
 		margin: 0.5em;
 		margin-top: 0;
 		font-size: 0.8em;
-		width: 64px;
+		width: 80px;
+		text-align: center;
 	}
 
 	.carousel::-webkit-scrollbar {
