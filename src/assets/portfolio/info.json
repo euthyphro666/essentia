@@ -168,7 +168,7 @@
 		"title": "Essentia",
 		"subtitle": "Personal Project",
 		"about": "This is my personal website, detailing my resume information and containing my portfolio. I just recently slapped a fresh look onto my portfolio. Congratulations, you're looking at it!",
-		"image": ["Essentia.jpg"],
+		"image": ["Essentia.png"],
 		"tags": ["TS", "Vue"],
 		"links": [
 			["repo", "https://github.com/euthyphro666/essentia"],

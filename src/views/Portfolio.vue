@@ -84,16 +84,13 @@
 
 	.portfolio {
 		background-color: #ffd369;
-		display: grid;
-		/* grid-template-rows: 60px auto; */
-		height: 100%;
-		width: 100%;
+		position: relative;
+		height: 100vh;
 	}
 	.timeline-container {
 		overflow-y: auto;
 		width: 100%;
-		height: 100%;
-		padding-top: 60px;
+		padding-top: 50px;
 	}
 	.timeline {
 		display: flex;
@@ -104,14 +101,15 @@
 
 	.year-panel {
 		position: absolute;
-		height: 60px;
-		/* left: 50%;
-		transform: translate(-25%, 0); */
+		height: auto;
 		z-index: 2;
 		display: flex;
 		flex-direction: row;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
+		width: calc(100% - 64px);
+		margin: 8px 32px;
 	}
 	.filter {
 		border: 3px solid #93a1af;
@@ -123,7 +121,7 @@
 		display: flex;
 		align-items: center;
 		padding: 0 16px;
-		margin: 0 8px;
+		margin: 4px 8px;
 		border-radius: 50px;
 		font-family: 'VT323', monospace;
 		text-align: center;
@@ -134,26 +132,16 @@
 		background-color: #b6b6b6;
 	}
 
-	@media only screen and (max-width: 1200px) {
-		/* .panel {
-			width: 120px;
-		}
-		.timeline-container {
-			width: calc(100% - 120px);
-		}
-		.filter {
-			height: 3.5em;
-		} */
+	@media only screen and (max-width: 850px) {
 	}
-	@media only screen and (max-width: 800px) {
-		/* .panel {
-			width: 70px;
-		}
+	@media only screen and (max-width: 656px) {
 		.timeline-container {
-			width: calc(100% - 70px);
+			padding-top: 96px;
 		}
-		.filter {
-			height: 3em;
-		} */
+	}
+	@media only screen and (max-width: 360px) {
+		.timeline-container {
+			padding-top: 144px;
+		}
 	}
 </style>

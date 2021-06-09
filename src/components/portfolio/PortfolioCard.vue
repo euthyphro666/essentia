@@ -33,8 +33,8 @@
 				></video>
 				<iframe
 					v-if="isLink(image)"
-					width="800"
-					height="450"
+					:width="getContentWidth()"
+					:height="getContentHeight()"
 					:src="image"
 					frameborder="0"
 					allowfullscreen
@@ -73,6 +73,15 @@
 		tags: string[];
 		links: [string, string][];
 	}
+
+	const getContentWidth = (): number => {
+		// Getting image width from HTML Element seems to be unreliable,
+		// So falling back on manually set hard coded values is definitely,
+		// less ideal but actually works... so... web dev is fun.
+		if (window.innerWidth >= 1080) return 800;
+		if (window.innerWidth >= 620) return 600;
+		else return Math.round(window.innerWidth * 0.9);
+	};
 
 	export default defineComponent({
 		name: 'PortfolioCard',
@@ -144,6 +153,12 @@
 			const getEmptyArray = (): [] => {
 				return [];
 			};
+
+			const getContentHeight = (): number => {
+				const width = getContentWidth();
+				return Math.round((width / 16) * 9);
+			};
+
 			return {
 				hasLinks,
 				isMovie,
@@ -154,6 +169,8 @@
 				onClick,
 				monthToDate,
 				getEmptyArray,
+				getContentWidth,
+				getContentHeight,
 			};
 		},
 		mounted() {
@@ -171,8 +188,8 @@
 						);
 
 						if (target && target.offsetLeft) {
-							console.log(`target offset ${target.offsetLeft}`);
-							scrolled.scrollLeft = Math.floor(target.offsetLeft / 800) * 800;
+							const cw = getContentWidth();
+							scrolled.scrollLeft = Math.floor(target.offsetLeft / cw) * cw;
 						}
 					};
 				});
@@ -246,7 +263,9 @@
 		background-color: #eeeeee;
 	}
 	.carousel {
+		flex: 1;
 		width: 800px;
+		background: #25272b;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -259,7 +278,7 @@
 		z-index: 1;
 	}
 	img {
-		max-height: 60vh;
+		/* max-height: 60vh; */
 		height: auto;
 		width: 800px;
 	}
@@ -281,17 +300,8 @@
 		background-color: #5d6670;
 		border-style: inset;
 		border-radius: 500px;
-		margin: 0 4px;
-	}
-
-	.slide-btn {
-		height: 1em;
-		width: 2em;
-		border: 3px solid #93a1af;
-		background-color: #5d6670;
-		border-style: inset;
-		border-radius: 500px;
-		margin: 0 4px;
+		margin: 2px 4px;
+		margin-top: 6px;
 	}
 
 	.slide-btn:active {
@@ -304,7 +314,7 @@
 		white-space: pre-wrap;
 		word-wrap: normal;
 		font-size: 1.2em;
-		margin: 8px 3em;
+		margin: 8px 4%;
 		padding: 1em;
 		border: 4px solid #93a1af;
 		background-color: #5d6670;
@@ -338,16 +348,32 @@
 		display: none;
 	}
 
-	@media only screen and (max-width: 1200px) {
-		/* .card {
-			width: calc(600px - 4em);
-			padding: 1.4em 2em;
-		} */
+	@media only screen and (max-width: 1080px) {
+		.card {
+			flex: 0 1 600px;
+		}
+		.carousel {
+			width: 600px;
+		}
+		.slide {
+			width: 600px;
+		}
+		img {
+			width: 600px;
+		}
 	}
-	@media only screen and (max-width: 800px) {
-		/* .card {
-			width: calc(100% - 1em);
-			padding: 1.4em 0.5em;
-		} */
+	@media only screen and (max-width: 620px) {
+		.card {
+			flex: 0 1 90vw;
+		}
+		.carousel {
+			width: 90vw;
+		}
+		.slide {
+			width: 90vw;
+		}
+		img {
+			width: 90vw;
+		}
 	}
 </style>

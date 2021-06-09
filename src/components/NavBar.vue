@@ -3,6 +3,9 @@
 		class="nav-bar"
 		:class="{ 'nav-bar-collapsed': collapsed, 'nav-bar-full': !collapsed }"
 	>
+		<div class="nav-bar-btn" @click="onClick('nav-bar')">
+			<i class="icon icon-menu" />
+		</div>
 		<div class="nav-bar-content">
 			<div class="nav-bar-title">JOSH<br />HESS</div>
 			<div class="nav-bar-item" @click="onClick('portfolio')">Portfolio</div>
@@ -46,6 +49,8 @@
 				this.collapsed = true;
 			} else if (item === 'resume') {
 				window.open(`${process.env.BASE_URL}resume-josh-hess.pdf`);
+			} else if (item === 'nav-bar') {
+				this.$router.push('/');
 			}
 		}
 	}
@@ -61,7 +66,7 @@
 		z-index: 3;
 		top: 0;
 		left: 0;
-		height: 100%;
+		height: 100vh;
 
 		display: flex;
 		flex-direction: column;
@@ -93,5 +98,39 @@
 	.nav-bar-item {
 		font-size: 2em;
 		cursor: pointer;
+	}
+	.nav-bar-btn {
+		display: none;
+		position: absolute;
+		top: 0;
+		right: -48px;
+		color: #222831;
+		font-size: 32px;
+		width: 48px;
+		height: 48px;
+		padding: 8px;
+		text-align: center;
+		z-index: 2;
+		color: #dfdfdf;
+		background-color: #222831;
+	}
+	.nav-bar-btn:active {
+		color: #5d6670;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		/* .card {
+			width: calc(600px - 4em);
+			padding: 1.4em 2em;
+		} */
+	}
+
+	@media only screen and (max-width: 850px) {
+		.nav-bar-collapsed {
+			margin-left: -220px;
+		}
+		.nav-bar-btn {
+			display: inherit;
+		}
 	}
 </style>
