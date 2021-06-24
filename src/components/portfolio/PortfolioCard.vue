@@ -61,27 +61,27 @@
 </template>
 
 <script lang="ts">
-	import { defineComponent, PropType } from 'vue';
+	import { defineComponent, PropType } from 'vue'
 
 	export interface CardInfo {
-		title: string;
-		subtitle: string;
-		year: number;
-		month: number;
-		about: string;
-		imageUrls: string[];
-		tags: string[];
-		links: [string, string][];
+		title: string
+		subtitle: string
+		year: number
+		month: number
+		about: string
+		imageUrls: string[]
+		tags: string[]
+		links: [string, string][]
 	}
 
 	const getContentWidth = (): number => {
 		// Getting image width from HTML Element seems to be unreliable,
 		// So falling back on manually set hard coded values is definitely,
 		// less ideal but actually works... so... web dev is fun.
-		if (window.innerWidth >= 1080) return 800;
-		if (window.innerWidth >= 620) return 600;
-		else return Math.round(window.innerWidth * 0.9);
-	};
+		if (window.innerWidth >= 1080) return 800
+		if (window.innerWidth >= 620) return 600
+		else return Math.round(window.innerWidth * 0.9)
+	}
 
 	export default defineComponent({
 		name: 'PortfolioCard',
@@ -105,59 +105,59 @@
 				'OCT',
 				'NOV',
 				'DEC',
-			];
+			]
 
 			const hasLinks = (info: CardInfo) => {
-				return info.links && info.links.length > 0;
-			};
+				return info.links && info.links.length > 0
+			}
 
 			const hasMultipleImages = (info: CardInfo) => {
-				return info.imageUrls && info.imageUrls.length > 1;
-			};
+				return info.imageUrls && info.imageUrls.length > 1
+			}
 
 			const isMovie = (image: string): boolean => {
-				const ext = image.split('.')[1];
-				return ext.toLowerCase() === 'mp4';
-			};
+				const ext = image.split('.')[1]
+				return ext.toLowerCase() === 'mp4'
+			}
 
 			const isLink = (image: string): boolean => {
-				const prefix = image.split(':')[0];
+				const prefix = image.split(':')[0]
 				return (
 					prefix.toLowerCase() === 'https' || prefix.toLowerCase() === 'http'
-				);
-			};
+				)
+			}
 
 			const genId = (value: string): string => {
-				let hash = 0;
-				if (value.length === 0) return `${hash}`;
+				let hash = 0
+				if (value.length === 0) return `${hash}`
 				for (let i = 0; i < value.length; i++) {
-					const chr = value.charCodeAt(i);
-					hash = (hash << 5) - hash + chr;
-					hash |= 0;
+					const chr = value.charCodeAt(i)
+					hash = (hash << 5) - hash + chr
+					hash |= 0
 				}
-				return `${hash}`;
-			};
+				return `${hash}`
+			}
 
 			const genHref = (value: string): string => {
-				return `#${genId(value)}`;
-			};
+				return `#${genId(value)}`
+			}
 
 			const onClick = (path: string): void => {
-				window.open(path, '_blank');
-			};
+				window.open(path, '_blank')
+			}
 
 			const monthToDate = (month: number): string => {
-				return months[month - 1];
-			};
+				return months[month - 1]
+			}
 
 			const getEmptyArray = (): [] => {
-				return [];
-			};
+				return []
+			}
 
 			const getContentHeight = (): number => {
-				const width = getContentWidth();
-				return Math.round((width / 16) * 9);
-			};
+				const width = getContentWidth()
+				return Math.round((width / 16) * 9)
+			}
 
 			return {
 				hasLinks,
@@ -171,31 +171,29 @@
 				getEmptyArray,
 				getContentWidth,
 				getContentHeight,
-			};
+			}
 		},
 		mounted() {
-			const scrolled = this.$refs.carousel as HTMLElement;
-			const buttons = this.$refs.buttons as HTMLElement;
+			const scrolled = this.$refs.carousel as HTMLElement
+			const buttons = this.$refs.buttons as HTMLElement
 			if (scrolled && buttons) {
-				const anchors = buttons.querySelectorAll<HTMLElement>("a[href^='#']");
+				const anchors = buttons.querySelectorAll<HTMLElement>("a[href^='#']")
 				// hash tag anchor href starts with '#'
 				anchors.forEach((a: HTMLElement) => {
 					a.onclick = function (e: Event) {
-						e.preventDefault();
-						const href = a.getAttribute('href')!.slice(1); // remove initial '#'
-						const target = scrolled.querySelector<HTMLElement>(
-							`[id='${href}']`
-						);
+						e.preventDefault()
+						const href = a.getAttribute('href')!.slice(1) // remove initial '#'
+						const target = scrolled.querySelector<HTMLElement>(`[id='${href}']`)
 
 						if (target && target.offsetLeft) {
-							const cw = getContentWidth();
-							scrolled.scrollLeft = Math.floor(target.offsetLeft / cw) * cw;
+							const cw = getContentWidth()
+							scrolled.scrollLeft = Math.floor(target.offsetLeft / cw) * cw
 						}
-					};
-				});
+					}
+				})
 			}
 		},
-	});
+	})
 </script>
 
 <style scoped>
@@ -292,20 +290,21 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+		/* margin-top: -32px; */
 	}
 	.slide-btn {
 		height: 1em;
-		width: 2em;
-		border: 3px solid #93a1af;
-		background-color: #5d6670;
-		border-style: inset;
-		border-radius: 500px;
+		width: 1em;
+		border: 2px solid #f2f8ff;
+		background-color: #5d667000;
+		/* border-style: inset; */
+		border-radius: 50px;
 		margin: 2px 4px;
 		margin-top: 6px;
 	}
 
 	.slide-btn:active {
-		background-color: #353a3f;
+		background-color: #9ca0a5;
 	}
 
 	.card-body {

@@ -26,11 +26,11 @@
 </template>
 
 <script lang="ts">
-	import { Options, Vue } from 'vue-class-component';
+	import { Options, Vue } from 'vue-class-component'
 	import PortfolioCard, {
 		CardInfo,
-	} from '../components/portfolio/PortfolioCard.vue';
-	import Info from '../assets/portfolio/info.json';
+	} from '../components/portfolio/PortfolioCard.vue'
+	import Info from '../assets/portfolio/info.json'
 
 	@Options({
 		components: {
@@ -38,8 +38,8 @@
 		},
 	})
 	export default class Projects extends Vue {
-		private currentYear = 2021;
-		private cardInfo!: CardInfo[];
+		private currentYear = 2021
+		private cardInfo!: CardInfo[]
 
 		beforeMount(): void {
 			this.cardInfo = Info.map((i) => {
@@ -52,29 +52,29 @@
 					imageUrls: i.image ? i.image : [],
 					tags: i.tags ? i.tags : [],
 					links: i.links ? i.links : [],
-				} as CardInfo;
-			});
+				} as CardInfo
+			})
 		}
 
 		getProjectYears(): number[] {
-			const years = new Set(Info.map((i) => i.year));
-			return [...years].reverse();
+			const years = new Set(Info.map((i) => i.year))
+			return [...years].reverse()
 		}
 
 		getProjectInfo(): CardInfo[] {
 			return this.cardInfo
 				.filter((i) => i.year === this.currentYear)
-				.sort((i1, i2) => i2.month - i1.month);
+				.sort((i1, i2) => i2.month - i1.month)
 		}
 
 		isYearActive(year: number): boolean {
-			return year === this.currentYear;
+			return year === this.currentYear
 		}
 
 		onYearClick(year: number): void {
-			this.currentYear = year;
-			const scrollable = this.$refs.scrollable as any;
-			scrollable.scrollTop = 0;
+			this.currentYear = year
+			const scrollable = this.$refs.scrollable as any
+			scrollable.scrollTop = 0
 		}
 	}
 </script>
@@ -112,10 +112,10 @@
 		margin: 8px 32px;
 	}
 	.filter {
-		border: 3px solid #93a1af;
+		border: 4px solid #393e46;
 		background-color: #5d6670;
-		border-style: outset;
-		color: #393e46;
+		/* border-style: outset; */
+		color: #9ca0a5;
 		cursor: pointer;
 		height: 40px;
 		display: flex;
@@ -129,7 +129,8 @@
 		font-weight: 800;
 	}
 	.activeFilter {
-		background-color: #b6b6b6;
+		background-color: #393e46;
+		color: #eeeeee;
 	}
 
 	@media only screen and (max-width: 850px) {

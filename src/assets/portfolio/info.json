@@ -42,7 +42,7 @@
 		"title": "Identity Crisis",
 		"subtitle": "University Project",
 		"about": "During the second of my abstract algebra courses, I developed a card game with one other classmate of mine (also named Josh). This game took advantage of isomorphic properties of various group structures in order to make a game that challenged one to create an identity action over the particular group being operated in. This card game was presented and played for the final project of the course.",
-		"image": ["IdentityCrisis.jpg", "IdentityCrisis2.jpg"],
+		"image": ["IdentityCrisis.jpg"],
 		"links": [["site", "https://www.thegamecrafter.com/games/identity-crisis"]]
 	},
 	{
