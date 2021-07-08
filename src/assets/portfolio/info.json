@@ -14,7 +14,7 @@
 		"month": 10,
 		"title": "Divine Intervention",
 		"subtitle": "Code Jam",
-		"about": "During my second code jam, I recruited a good friend of mine to help me make a short video game. We built a norse god themed brawler game in 24 hours. We used the open source libGDX library to expose openGL bindings, but it was otherwise done from scratch. We ended up receiving third place for our entry.",
+		"about": "During my second code jam, I recruited a good friend of mine to help me make a short video game. We built a norse god themed brawler game in 24 hours. We used the open source LibGDX library to expose OpenGL bindings, but it was otherwise done from scratch. We ended up receiving third place for our entry.",
 		"image": ["DivineIntervention2.jpg", "DivineIntervention1.jpg"],
 		"tags": ["Java", "LibGDX", "OpenGL"]
 	},
@@ -32,7 +32,7 @@
 		"month": 12,
 		"title": "Necro Hero",
 		"subtitle": "Personal Project",
-		"about": "I began working on a game using the Java LibGDX framework in my free time. I did this because I was extremely curious about game development and wanted something to practice design concepts used within game development. I generally took the 'ground up approach' that commonly plagued my earlier development. From a level designer, to custom save file serialization, to an in game console. I spent a lot of time developing systems coincident to game development and not a lot of time on game development itself. ",
+		"about": "I began working on a game using the Java LibGDX framework in my free time. I was extremely curious about game development and wanted something to practice design concepts. I generally took the 'ground up approach' that commonly plagued my earlier development. From a level designer, to custom save file serialization, to an in game console. I spent a lot of time developing systems coincident to game development and not a lot of time on game development itself. ",
 		"image": ["NecroHero.png", "AphelionEditor.jpg"],
 		"tags": ["Java", "LibGDX", "OpenGL"]
 	},
@@ -41,7 +41,7 @@
 		"month": 4,
 		"title": "Identity Crisis",
 		"subtitle": "University Project",
-		"about": "During the second of my abstract algebra courses, I developed a card game with one other classmate of mine (also named Josh). This game took advantage of isomorphic properties of various group structures in order to make a game that challenged one to create an identity action over the particular group being operated in. This card game was presented and played for the final project of the course.",
+		"about": "During the second of my abstract algebra courses, I developed a card game with one other classmate of mine (also named Josh, hence WLOG Josh). This game took advantage of isomorphic properties of various group structures in order to make a game that challenged one to create an identity action over the particular group being operated in. This card game was presented and played for the final project of the course.",
 		"image": ["IdentityCrisis.jpg"],
 		"links": [["site", "https://www.thegamecrafter.com/games/identity-crisis"]]
 	},
@@ -50,7 +50,7 @@
 		"month": 4,
 		"title": "FTL Clone",
 		"subtitle": "University Project",
-		"about": "In the last few weeks of an iOS course I attended, I created a blatant knock-off of Faster Than Light. Since I didn't have any Apple devices at the time, the most challenging part of this project was running a MacOS vm on my cheap laptop to code at home.",
+		"about": "In the last few weeks of an iOS course I attended I created a blatant knock-off of the game, Faster Than Light. Since I didn't have any Apple devices at the time, the most challenging part of this project was running a MacOS vm on my cheap laptop in order to program at home.",
 		"image": ["MoveCrew.gif"],
 		"tags": ["Swift"]
 	},
@@ -59,7 +59,7 @@
 		"month": 6,
 		"title": "Game Server",
 		"subtitle": "Work Project",
-		"about": "For almost two years I was a part of a small team tasked with building a general gaming server from the ground up. The server was built with dot NET and had a wide range of functionality from end-to-end message encryption and delivery to cryptographically secure game result generation. It was made to be flexible as it needed to support many different clients and configurations. For example, in some setups it would provide simulated roulette results while in others it would manage a physical roulette. Given the massive scope required by the server it was all founded on a extremely modular design allowing for flexible extensibility.",
+		"about": "For almost two years I was a part of a small team tasked with building a general gaming server from the ground up. The server was built with dotNET and had a wide range of functionality from end-to-end message encryption and delivery to cryptographically secure game result generation. It was made to be flexible as it needed to support many different clients and configurations. For example, in some setups it would provide simulated roulette results while in others it would manage a physical roulette. Given the massive scope required by the server it was all founded on an extremely modular design allowing for flexibility & extensibility.",
 		"image": ["gcms.jpg"],
 		"tags": ["C#", "dotNET", "Postgres"]
 	},
@@ -68,7 +68,7 @@
 		"month": 7,
 		"title": "Card Peeping",
 		"subtitle": "Work Project",
-		"about": "One particular project at work required a optimized way to be able to arbitrarily bend a face card in order to mimic 'peeping' at the card. Since the original project was done in Adobe Flash, and the feature would work best with shaders, I took on the task of implementing it in the only shader language supported by flash - the Adobe Graphics Assembly Language (AGAL). Later when the project was upgraded to Haxe I ported the shader program to the OpenGL Shader Language (GLSL), which was far easier to accomplish.",
+		"about": "One particular project at work required an optimized way to be able to arbitrarily bend a face card in order to mimic 'peeping' at the card. Since the original project was done in Adobe Flash, and the feature would work best with shaders, I took on the task of implementing it in the only shader language supported by flash - the Adobe Graphics Assembly Language (AGAL). Later when the project was upgraded to Haxe I ported the shader program to the OpenGL Shader Language (GLSL), which was far easier to accomplish.",
 		"image": ["CardPeeping.png"],
 		"tags": ["AS3", "AGAL", "OpenGl"]
 	},
@@ -89,7 +89,7 @@
 		"month": 5,
 		"title": "Gin Engine",
 		"subtitle": "Personal Project",
-		"about": "In an effort to improve my C++ skills as well as getting a better understanding of graphics and simulation programming, I started the Gin engine. The Gin engine is the foundation of a game engine written in C++. It relies on few libraries, sticking more or less to pure OpenGL libraries with the notable exception of an entity component system library in order to incorporate a streamlined way to interact with physics and rendering systems. This project is ongoing, but is for the most part a passion project oriented to refining my own skills.",
+		"about": "In an effort to improve my C++ skills as well as getting a better understanding of graphics and simulation programming, I started the Gin engine. The Gin engine is the foundation of a game engine written in C++. It relies on few libraries, sticking more or less to pure OpenGL wrangler libraries with the notable exception of an entity component system library in order to incorporate a streamlined way to interact with physics and rendering systems. This project is ongoing, but is for the most part a passion project oriented to refining my own skills.",
 		"image": ["GinEngine.jpg"],
 		"links": [["repo", "https://github.com/Something-Specific/SpecificEngine"]],
 		"tags": ["C++", "OpenGl"]
@@ -108,7 +108,7 @@
 		"month": 11,
 		"title": "Face 2 Face",
 		"subtitle": "University Project",
-		"about": "For an android development class, I created a video chatting application. It uses WebRTC to handle the actual media streaming and a Node server to handle the message and synchronization. Since the scope of the project was meant to be fairly small, and since WebRTC streaming over the internet requires more advanced mechanisms (STUN, TURN servers), the application only works within a local network. Unfortunately, because of this constraint there is no easily accessible demo. One has to manually setup the Node server and sideload the APK on multiple android devices to test it out.",
+		"about": "For an android development class, I created a video chatting application. It uses WebRTC to handle the actual media streaming and a Node server to handle the messaging and state synchronization. Since the scope of the project was meant to be fairly small, and since WebRTC streaming over the internet (through a NAT in particular) requires more advanced mechanisms (STUN, TURN servers), the application only works within a local network. Unfortunately, because of this constraint there is no easily accessible demo. One has to manually setup the Node server and sideload the APK on multiple android devices to test it out.",
 		"image": ["face2face.gif"],
 		"tags": ["JS", "Node", "Kotlin", "WebRTC"],
 		"links": [["repo", "https://github.com/euthyphro666/face2face"]]
@@ -118,7 +118,7 @@
 		"month": 2,
 		"title": "Aphelion",
 		"subtitle": "University Project",
-		"about": "For a web development class, I created a game in a website with the intention of exploring all the backend functionality required to do so. The game itself wasn't the point, but rather everything else in the stack. It uses Vue and TS for the frontend and Node server utilizing MongoDB, SocketIO, Axios, and BCrypt for the backend. All running in a Google compute VM instance with an Nginx reverse proxy to serve it up.",
+		"about": "For a web development class, I created a game in a website with the intention of exploring all the backend functionality required to do so. The game itself wasn't the point, but rather everything else in the stack. It uses Vue and TS for the frontend and Node server utilizing MongoDB, SocketIO, Axios, and BCrypt for the backend. All running on a home server with an Nginx reverse proxy to serve it up.",
 		"image": ["aphelion-login.jpg", "aphelion.jpg"],
 		"tags": ["TS", "Vue", "MongoDb", "Node"],
 		"links": [
@@ -131,9 +131,9 @@
 		"month": 3,
 		"title": "Axiomatize",
 		"subtitle": "University Project",
-		"about": "As part of an upper level geometry class, I made a game that gave the player a taste of what it was like to build up an axiomatic system similar to those used in geometry. Some of these 'geometries' can be quite satisfying to create and feel very puzzle-esque. The app was made with Typescript and Quasar to be able to be packaged for a mobile or web app.",
+		"about": "As part of an upper level geometry class, I made a game that gave the player a taste of what it was like to build up an axiomatic system similar to those used in geometry. Some of these 'geometries' can be quite satisfying to create and feel very puzzle-esque. The app was made with TS and Quasar to be able to be packaged for a mobile or web app.",
 		"image": ["axiomatize.jpg", "Axiomatize1.png"],
-		"tags": ["Quasar", "Vue"],
+		"tags": ["TS", "Quasar", "Vue"],
 		"links": [
 			["repo", "https://github.com/euthyphro666/axiomatize"],
 			["demo", "http://axiomatize.appspot.com/"]
