@@ -1,4 +1,6 @@
 import { RouterProvider, createRouter } from "@tanstack/react-router";
+import { CssVarsProvider } from "@mui/joy/styles";
+import CssBaseline from "@mui/joy/CssBaseline";
 import { routeTree } from "../routeTree.gen";
 
 const router = createRouter({ routeTree });
@@ -8,8 +10,11 @@ declare module "@tanstack/react-router" {
   }
 }
 
-function App() {
-  return <RouterProvider router={router} />;
+export default function App() {
+  return (
+    <CssVarsProvider>
+      <CssBaseline />
+      <RouterProvider router={router} />
+    </CssVarsProvider>
+  );
 }
-
-export default App;

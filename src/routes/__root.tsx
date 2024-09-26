@@ -3,10 +3,8 @@ import Layout from "../layout/Layout";
 
 export const Route = createRootRoute({
   component: () => (
-    <>
-      <Layout>
-        <Outlet />
-      </Layout>
-    </>
+    <Layout>
+      <Outlet />
+    </Layout>
   ),
 });
