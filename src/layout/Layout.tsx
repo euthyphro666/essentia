@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import { lazy, Suspense } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 const TanStackRouterDevtools =
   process.env.NODE_ENV === "production"
@@ -16,13 +16,11 @@ const TanStackRouterDevtools =
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <>
+    <Suspense>
       <Header />
       {children}
-      <Footer />
-      <Suspense>
-        <TanStackRouterDevtools />
-      </Suspense>
-    </>
+      {/* <Footer /> */}
+      <TanStackRouterDevtools />
+    </Suspense>
   );
 }

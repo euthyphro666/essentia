@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // import { Link } from "@tanstack/react-router";
-import { useColorScheme, Option, Select } from "@mui/joy";
+import { useColorScheme, Option, Select, Typography, Stack } from "@mui/joy";
 
 export default function Header() {
   const { mode, setMode } = useColorScheme();
@@ -14,16 +14,26 @@ export default function Header() {
   }
 
   return (
-    <Select
-      value={mode}
-      onChange={(_, newMode) => {
-        setMode(newMode);
+    <Stack
+      direction="row"
+      sx={{
+        justifyContent: "space-between",
+        alignItems: "flex-start",
       }}
-      sx={{ width: "max-content" }}
     >
-      <Option value="system">System</Option>
-      <Option value="light">Light</Option>
-      <Option value="dark">Dark</Option>
-    </Select>
+      <div />
+      <Typography level="h1">Josh Hess</Typography>
+      <Select
+        value={mode}
+        onChange={(_, newMode) => {
+          setMode(newMode);
+        }}
+        sx={{ width: "max-content" }}
+      >
+        <Option value="system">System</Option>
+        <Option value="light">Light</Option>
+        <Option value="dark">Dark</Option>
+      </Select>
+    </Stack>
   );
 }
