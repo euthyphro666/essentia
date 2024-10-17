@@ -1,36 +1,40 @@
-import { useCallback, useEffect, useState } from "react";
-import { Container, Sheet, Typography } from "@mui/joy";
+import { useCallback, useEffect, useState } from 'react';
+import { Card, Container, Typography } from '@mui/joy';
 
-import styles from "./portfolio.module.scss";
+import styles from './portfolio.module.scss';
 
 export interface PortfolioProps {
-  min: number;
-  max: number;
+  minScale: number;
+  maxScale: number;
+  scrollFactor: number;
   fadeThreshold: number;
 }
 
 export default function Portfolio({
-  min = 600,
-  max = 2400,
-  fadeThreshold = 0.85,
+  minScale = 1.0,
+  maxScale = 3.0,
+  scrollFactor = 800.0,
+  fadeThreshold = 0.5,
 }: PortfolioProps) {
   const cards = [
-    { title: "I do things", description: "So many things" },
-    { title: "I do more things, too", description: "So many more things" },
+    { title: 'I do things', description: 'So many things' },
+    { title: 'I do more things, too', description: 'So many more things' },
   ];
-  const [state, setState] = useState({ currentCard: 0, scroll: 0 });
+  const [state, setState] = useState({ currentCard: 0, scroll: 800 });
   const updateScroll = useCallback(
     (event: WheelEventInit) => {
       setState(({ currentCard, scroll }) => {
+        const minScroll = minScale * scrollFactor;
+        const maxScroll = maxScale * scrollFactor;
         const delta = event.deltaY ? event.deltaY : 0;
         let newCard = currentCard;
         let newScroll = scroll + delta;
-        if (newScroll < min) {
-          newScroll = max;
+        if (newScroll < minScroll) {
+          newScroll = maxScroll;
           newCard = --newCard < 0 ? newCard + cards.length : newCard;
         }
-        if (newScroll > max) {
-          newScroll = min;
+        if (newScroll > maxScroll) {
+          newScroll = minScroll;
           newCard = ++newCard % cards.length;
         }
         return {
@@ -39,36 +43,36 @@ export default function Portfolio({
         };
       });
     },
-    [min, max, cards.length]
+    [minScale, maxScale, scrollFactor, cards.length]
   );
 
   useEffect(() => {
-    document.addEventListener("mousewheel", updateScroll);
-    return () => document.removeEventListener("mousewheel", updateScroll);
+    document.addEventListener('mousewheel', updateScroll);
+    return () => document.removeEventListener('mousewheel', updateScroll);
   }, [updateScroll]);
 
-  const card = cards[(state.currentCard + cards.length) % cards.length];
-  const nextCard = cards[(state.currentCard + 1 + cards.length) % cards.length];
+  const nextCardIndex = trueMod(state.currentCard + 1, cards.length);
+  const card = cards[state.currentCard];
+  const nextCard = cards[nextCardIndex];
 
-  const fade = Math.max(
-    0,
-    (state.scroll - max * fadeThreshold) / (max - max * fadeThreshold)
-  );
+  const currentScale = state.scroll / scrollFactor;
+  const progress = (currentScale - minScale) / (maxScale - minScale);
+  const fade = Math.max(0, (progress - fadeThreshold) / (1.0 - fadeThreshold));
   return (
-    <Container>
-      {/* {fade > 0 ? ( */}
-      <Card
-        index={cards.indexOf(nextCard)}
-        {...nextCard}
-        scroll={state.scroll}
-        fade={fade}
-        className={styles.cardNext}
-      />
-      {/* ) : null} */}
-      <Card
-        index={cards.indexOf(card)}
+    <Container className={styles.container}>
+      {fade > 0 ? (
+        <Item
+          index={nextCardIndex}
+          {...nextCard}
+          scale={progress * minScale}
+          fade={0}
+          className={styles.card}
+        />
+      ) : null}
+      <Item
+        index={state.currentCard}
         {...card}
-        scroll={state.scroll}
+        scale={currentScale}
         fade={fade}
         className={styles.card}
       />
@@ -76,37 +80,35 @@ export default function Portfolio({
   );
 }
 
-interface CardProps {
+function Item(props: ItemProps) {
+  return (
+    <Card
+      className={props.className}
+      sx={{
+        transform: `scale(${props.scale})`,
+        opacity: 1.0 - props.fade,
+        // backgroundColor: 'primary.softBg',
+        // borderColor: 'primary.border',
+      }}
+      color='primary'
+    >
+      <Typography level='h4' component='h1'>
+        {props.title}
+      </Typography>
+      <Typography level='body-sm'>
+        (i, s, f): ({props.index}, {props.scale}, {props.fade})
+      </Typography>
+      <Typography level='body-sm'>{props.description}</Typography>
+    </Card>
+  );
+}
+interface ItemProps {
   index: number;
   title: string;
   description: string;
-  scroll: number;
+  scale: number;
   fade: number;
   className?: string;
 }
-function Card({
-  index,
-  title,
-  description,
-  scroll,
-  fade,
-  className,
-}: CardProps) {
-  return (
-    <Sheet
-      className={className}
-      sx={{
-        transform: `scale(${scroll / 800.0})`,
-        opacity: 1.0 - fade,
-      }}
-    >
-      <Typography level="h4" component="h1">
-        {title}
-      </Typography>
-      <Typography level="body-sm">
-        {index}: {scroll}
-      </Typography>
-      <Typography level="body-sm">{description}</Typography>
-    </Sheet>
-  );
-}
+
+const trueMod = (n: number, m: number) => ((n % m) + m) % m;

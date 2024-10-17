@@ -1,39 +1,27 @@
-import { useEffect, useState } from "react";
-// import { Link } from "@tanstack/react-router";
-import { useColorScheme, Option, Select, Typography, Stack } from "@mui/joy";
+import { useColorScheme, Typography, Stack } from '@mui/joy';
+import styles from './header.module.scss';
+import pullcord from '../assets/pullcord.png';
 
 export default function Header() {
   const { mode, setMode } = useColorScheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <Stack
-      direction="row"
+      direction='row'
       sx={{
-        justifyContent: "space-between",
-        alignItems: "flex-start",
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+        padding: '0 8px',
       }}
     >
       <div />
-      <Typography level="h1">Josh Hess</Typography>
-      <Select
-        value={mode}
-        onChange={(_, newMode) => {
-          setMode(newMode);
-        }}
-        sx={{ width: "max-content" }}
+      <Typography level='h1'> </Typography>
+      <button
+        className={styles.button}
+        onClick={() => setMode(mode == 'dark' ? 'light' : 'dark')}
       >
-        <Option value="system">System</Option>
-        <Option value="light">Light</Option>
-        <Option value="dark">Dark</Option>
-      </Select>
+        <img src={pullcord} height={125} />
+      </button>
     </Stack>
   );
 }
