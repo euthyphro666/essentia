@@ -1,17 +1,22 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Container, Sheet, Typography } from '@mui/joy';
+import { useCallback, useEffect, useState } from "react";
+import { Container, Sheet, Typography } from "@mui/joy";
 
-import styles from './portfolio.module.scss';
+import styles from "./portfolio.module.scss";
 
 export interface PortfolioProps {
   min: number;
   max: number;
+  fadeThreshold: number;
 }
 
-export default function Portfolio({ min = 600, max = 2400 }: PortfolioProps) {
+export default function Portfolio({
+  min = 600,
+  max = 2400,
+  fadeThreshold = 0.85,
+}: PortfolioProps) {
   const cards = [
-    { title: 'I do things', description: 'So many things' },
-    { title: 'I do more things, too', description: 'So many more things' },
+    { title: "I do things", description: "So many things" },
+    { title: "I do more things, too", description: "So many more things" },
   ];
   const [state, setState] = useState({ currentCard: 0, scroll: 0 });
   const updateScroll = useCallback(
@@ -38,25 +43,70 @@ export default function Portfolio({ min = 600, max = 2400 }: PortfolioProps) {
   );
 
   useEffect(() => {
-    document.addEventListener('mousewheel', updateScroll);
-    return () => document.removeEventListener('mousewheel', updateScroll);
+    document.addEventListener("mousewheel", updateScroll);
+    return () => document.removeEventListener("mousewheel", updateScroll);
   }, [updateScroll]);
 
   const card = cards[(state.currentCard + cards.length) % cards.length];
+  const nextCard = cards[(state.currentCard + 1 + cards.length) % cards.length];
+
+  const fade = Math.max(
+    0,
+    (state.scroll - max * fadeThreshold) / (max - max * fadeThreshold)
+  );
   return (
     <Container>
-      <Sheet
+      {/* {fade > 0 ? ( */}
+      <Card
+        index={cards.indexOf(nextCard)}
+        {...nextCard}
+        scroll={state.scroll}
+        fade={fade}
+        className={styles.cardNext}
+      />
+      {/* ) : null} */}
+      <Card
+        index={cards.indexOf(card)}
+        {...card}
+        scroll={state.scroll}
+        fade={fade}
         className={styles.card}
-        sx={{ transform: `scale(${state.scroll / 800.0})` }}
-      >
-        <Typography level='h4' component='h1'>
-          {card.title}
-        </Typography>
-        <Typography level='body-sm'>
-          {state.currentCard}: {state.scroll}
-        </Typography>
-        <Typography level='body-sm'>{card.description}</Typography>
-      </Sheet>
+      />
     </Container>
+  );
+}
+
+interface CardProps {
+  index: number;
+  title: string;
+  description: string;
+  scroll: number;
+  fade: number;
+  className?: string;
+}
+function Card({
+  index,
+  title,
+  description,
+  scroll,
+  fade,
+  className,
+}: CardProps) {
+  return (
+    <Sheet
+      className={className}
+      sx={{
+        transform: `scale(${scroll / 800.0})`,
+        opacity: 1.0 - fade,
+      }}
+    >
+      <Typography level="h4" component="h1">
+        {title}
+      </Typography>
+      <Typography level="body-sm">
+        {index}: {scroll}
+      </Typography>
+      <Typography level="body-sm">{description}</Typography>
+    </Sheet>
   );
 }
