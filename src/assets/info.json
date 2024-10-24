@@ -1,0 +1,192 @@
+[
+  {
+    "year": 2016,
+    "month": 9,
+    "title": "Network Simulation",
+    "subtitle": "Code Jam",
+    "about": "In my first ever code jam, I joined a team of three others where we created a network simulation in VR. We used wire shark to record public traffic which we then fed into our Unity program. The Unity program rendered each packet as a sphere where it got simulated in our VR headset. Our project got us third place in the competition.",
+    "image": ["VrNetworkSimulation.png"],
+    "links": [["repo", "https://github.com/mwilde345/CodeCampSingle"]],
+    "tags": ["C#", "Unity", "Wireshark"]
+  },
+  {
+    "year": 2017,
+    "month": 10,
+    "title": "Divine Intervention",
+    "subtitle": "Code Jam",
+    "about": "During my second code jam, I recruited a good friend of mine to help me make a short video game. We built a norse god themed brawler game in 24 hours. We used the open source LibGDX library to expose OpenGL bindings, but it was otherwise done from scratch. We ended up receiving third place for our entry.",
+    "image": ["DivineIntervention2.jpg", "DivineIntervention1.jpg"],
+    "tags": ["Java", "LibGDX", "OpenGL"]
+  },
+  {
+    "year": 2017,
+    "month": 11,
+    "title": "Crypto Tools",
+    "subtitle": "University Project",
+    "about": "For an abstract algebra class, I teamed up with two other students in order to develop a simple program that can generate or attempt to crack RSA keys as well as perform a Hill-Cypher encryption. The program was used to demonstrate an understanding of the mathematics behind the algorithms and presented in the class as the final project.",
+    "image": ["CryptoTools.jpg"],
+    "tags": ["Python"]
+  },
+  {
+    "year": 2017,
+    "month": 12,
+    "title": "Necro Hero",
+    "subtitle": "Personal Project",
+    "about": "I began working on a game using the Java LibGDX framework in my free time. I was extremely curious about game development and wanted something to practice design concepts. I generally took the 'ground up approach' that commonly plagued my earlier development. From a level designer, to custom save file serialization, to an in game console. I spent a lot of time developing systems coincident to game development and not a lot of time on game development itself. ",
+    "image": ["NecroHero.png", "AphelionEditor.jpg"],
+    "tags": ["Java", "LibGDX", "OpenGL"]
+  },
+  {
+    "year": 2018,
+    "month": 4,
+    "title": "Identity Crisis",
+    "subtitle": "University Project",
+    "about": "During the second of my abstract algebra courses, I developed a card game with one other classmate of mine (also named Josh, hence WLOG Josh). This game took advantage of isomorphic properties of various group structures in order to make a game that challenged one to create an identity action over the particular group being operated in. This card game was presented and played for the final project of the course.",
+    "image": ["IdentityCrisis.jpg"],
+    "links": [["site", "https://www.thegamecrafter.com/games/identity-crisis"]]
+  },
+  {
+    "year": 2018,
+    "month": 4,
+    "title": "FTL Clone",
+    "subtitle": "University Project",
+    "about": "In the last few weeks of an iOS course I attended I created a blatant knock-off of the game, Faster Than Light. Since I didn't have any Apple devices at the time, the most challenging part of this project was running a MacOS vm on my cheap laptop in order to program at home.",
+    "image": ["MoveCrew.gif"],
+    "tags": ["Swift"]
+  },
+  {
+    "year": 2018,
+    "month": 6,
+    "title": "Game Server",
+    "subtitle": "Work Project",
+    "about": "For almost two years I was a part of a small team tasked with building a general gaming server from the ground up. The server was built with dotNET and had a wide range of functionality from end-to-end message encryption and delivery to cryptographically secure game result generation. It was made to be flexible as it needed to support many different clients and configurations. For example, in some setups it would provide simulated roulette results while in others it would manage a physical roulette. Given the massive scope required by the server it was all founded on an extremely modular design allowing for flexibility & extensibility.",
+    "image": ["gcms.jpg"],
+    "tags": ["C#", "dotNET", "Postgres"]
+  },
+  {
+    "year": 2018,
+    "month": 7,
+    "title": "Card Peeping",
+    "subtitle": "Work Project",
+    "about": "One particular project at work required an optimized way to be able to arbitrarily bend a face card in order to mimic 'peeping' at the card. Since the original project was done in Adobe Flash, and the feature would work best with shaders, I took on the task of implementing it in the only shader language supported by flash - the Adobe Graphics Assembly Language (AGAL). Later when the project was upgraded to Haxe I ported the shader program to the OpenGL Shader Language (GLSL), which was far easier to accomplish.",
+    "image": ["CardPeeping.png"],
+    "tags": ["AS3", "AGAL", "OpenGl"]
+  },
+  {
+    "year": 2018,
+    "month": 12,
+    "title": "Graphics Demo",
+    "subtitle": "University Project",
+    "about": "As an exercise in self loathing, I did a couple projects using the ancient software 'PovRAY'. I used the program to gain insight into the math behind general graphics concepts, various lighting effects, and how far I could bend my patience. The penultimate project I completed was inspired by the mandelbrot set (first video above). While the ultimate project I completed involved Perlin noise to create a short retrowave style scene (second video above).",
+    "image": [
+      "https://www.youtube.com/embed/h27hZNL9jCg",
+      "https://www.youtube.com/embed/O6-vYdp73Tw"
+    ],
+    "tags": ["PovRAY"]
+  },
+  {
+    "year": 2019,
+    "month": 5,
+    "title": "Gin Engine",
+    "subtitle": "Personal Project",
+    "about": "In an effort to improve my C++ skills as well as getting a better understanding of graphics and simulation programming, I started the Gin engine. The Gin engine is the foundation of a game engine written in C++. It relies on few libraries, sticking more or less to pure OpenGL wrangler libraries with the notable exception of an entity component system library in order to incorporate a streamlined way to interact with physics and rendering systems. This project is ongoing, but is for the most part a passion project oriented to refining my own skills.",
+    "image": ["GinEngine.jpg"],
+    "links": [["repo", "https://github.com/Something-Specific/SpecificEngine"]],
+    "tags": ["C++", "OpenGl"]
+  },
+  {
+    "year": 2019,
+    "month": 7,
+    "title": "Media Suite",
+    "subtitle": "Work Project",
+    "about": "For about a year I worked solely on a completely custom end-to-end streaming solution. For our particular use case, we needed the streams to be very flexible in presentation as well as extremely low latency since they were used to broadcast results in a casino environment. After spending much time researching solutions and playing around with various protocols, such as Adobe's RTMFP, I settled on using WebRTC for performance reasons. The server handled state synchronization with SocketIO and acted as a Selective Forwarding Unit (SFU) using a library called MediaSoup. Being an SFU it was designed to handle an arbitrary amount of clients and spread the workload intelligently across as many processes as was required. The client side application was built with Electron in order to be able to have complete customization of the window. The client could be configured in numerous ways from kiosk mode to a small overlay and could either produce or consume a stream.",
+    "image": ["mediahub.jpg"],
+    "tags": ["JS", "Node", "WebRTC"]
+  },
+  {
+    "year": 2019,
+    "month": 11,
+    "title": "Face 2 Face",
+    "subtitle": "University Project",
+    "about": "For an android development class, I created a video chatting application. It uses WebRTC to handle the actual media streaming and a Node server to handle the messaging and state synchronization. Since the scope of the project was meant to be fairly small, and since WebRTC streaming over the internet (through a NAT in particular) requires more advanced mechanisms (STUN, TURN servers), the application only works within a local network. Unfortunately, because of this constraint there is no easily accessible demo. One has to manually setup the Node server and sideload the APK on multiple android devices to test it out.",
+    "image": ["face2face.gif"],
+    "tags": ["JS", "Node", "Kotlin", "WebRTC"],
+    "links": [["repo", "https://github.com/euthyphro666/face2face"]]
+  },
+  {
+    "year": 2020,
+    "month": 2,
+    "title": "Aphelion",
+    "subtitle": "University Project",
+    "about": "For a web development class, I created a game in a website with the intention of exploring all the backend functionality required to do so. The game itself wasn't the point, but rather everything else in the stack. It uses Vue and TS for the frontend and Node server utilizing MongoDB, SocketIO, Axios, and BCrypt for the backend. All running on a home server with an Nginx reverse proxy to serve it up.",
+    "image": ["aphelion-login.jpg", "aphelion.jpg"],
+    "tags": ["TS", "Vue", "MongoDb", "Node"],
+    "links": [
+      ["repo", "https://github.com/euthyphro666/aphelion"],
+      ["demo", "http://aphelion.live/"]
+    ]
+  },
+  {
+    "year": 2020,
+    "month": 3,
+    "title": "Axiomatize",
+    "subtitle": "University Project",
+    "about": "As part of an upper level geometry class, I made a game that gave the player a taste of what it was like to build up an axiomatic system similar to those used in geometry. Some of these 'geometries' can be quite satisfying to create and feel very puzzle-esque. The app was made with TS and Quasar to be able to be packaged for a mobile or web app.",
+    "image": ["axiomatize.jpg", "Axiomatize1.png"],
+    "tags": ["TS", "Quasar", "Vue"],
+    "links": [
+      ["repo", "https://github.com/euthyphro666/axiomatize"],
+      ["demo", "http://axiomatize.appspot.com/"]
+    ]
+  },
+  {
+    "year": 2020,
+    "month": 4,
+    "title": "Spectrum",
+    "subtitle": "University Project",
+    "about": "For my final project in university, I made a simple web based map editor for table top role playing games. The web app allowed the user to create a campaign to store maps and characters within. It also allowed the user to launch a map into a session that allowed other clients to join and synchronize map data.",
+    "image": ["Spectrum.jpg", "Spectrum.gif"],
+    "tags": ["TS", "Vue", "MongoDb", "Node"],
+    "links": [["repo", "https://github.com/euthyphro666/spectrum"]]
+  },
+  {
+    "year": 2020,
+    "month": 10,
+    "title": "Disregard That",
+    "subtitle": "Personal Project",
+    "about": "This project is a simple landing page for a podcast I run with a friend about the philosophy of religion.The project is done with Vue in JS and hosted using Google Compute Engine. The podcast itself is simply hosted through anchor.fm.",
+    "image": ["disregardthat.jpg"],
+    "tags": ["Vue"],
+    "links": [
+      ["repo", "https://github.com/euthyphro666/disregard-that"],
+      ["site", "https://disregardthatpodcast.com"]
+    ]
+  },
+  {
+    "year": 2021,
+    "month": 1,
+    "title": "Essentia",
+    "subtitle": "Personal Project",
+    "about": "This is my personal website, detailing my resume information and containing my portfolio. I just recently slapped a fresh look onto my portfolio. Congratulations, you're looking at it!",
+    "image": ["Essentia.png"],
+    "tags": ["TS", "Vue"],
+    "links": [
+      ["repo", "https://github.com/euthyphro666/essentia"],
+      ["site", "https://joshhess.info"]
+    ]
+  },
+  {
+    "year": 2021,
+    "month": 3,
+    "title": "Slaughter House",
+    "subtitle": "Game Jam",
+    "about": "A game jam entry for the '7 day rogue like' (7drl) 2021 game jam. My team was composed of myself, one other programmer, a graphics artist, and a sound artist. We created a prototype for a top down dungeon crawler type game.",
+    "image": ["SlaughterHouse.png"],
+    "tags": ["TS", "PixiJS"],
+    "links": [
+      ["repo", "https://github.com/Something-Specific/7DRL-1"],
+      ["site", "https://somethingspecific.itch.io/slaughterhouse"],
+      ["demo", "https://7drl.somethingspecific.dev/"]
+    ]
+  }
+]
