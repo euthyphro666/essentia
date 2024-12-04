@@ -19,12 +19,18 @@ export default function App() {
       <GlobalStyles
         styles={{
           html: {
+            overflow: "hidden",
+            overscrollBehavior: "none",
             height: "100%",
           },
           body: {
+            overflow: "hidden",
+            overscrollBehavior: "none",
             height: "100%",
           },
-          root: {
+          "#root": {
+            overflow: "hidden",
+            overscrollBehavior: "none",
             height: "100%",
           },
         }}

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { Card, Container, Typography } from "@mui/joy";
+import { Box, Card, Container, Typography } from "@mui/joy";
 import type { PortfolioCard } from "../../types";
 import portfolio from "../../assets/info.json";
 import Canvas from "./canvas";
@@ -19,10 +19,10 @@ export default function Portfolio({
   scrollFactor = 800.0,
   fadeThreshold = 0.5,
 }: PortfolioProps) {
-  const [state, setState] = useState({ currentCard: 0, scroll: 800 });
+  const [state, setState] = useState({ currentCard: 0, scroll: 800, total: 0 });
   const updateScroll = useCallback(
     (event: WheelEventInit) => {
-      setState(({ currentCard, scroll }) => {
+      setState(({ currentCard, scroll, total }) => {
         const minScroll = minScale * scrollFactor;
         const maxScroll = maxScale * scrollFactor;
         const delta = event.deltaY ? event.deltaY : 0;
@@ -39,6 +39,7 @@ export default function Portfolio({
         return {
           scroll: newScroll,
           currentCard: newCard,
+          total: total + delta,
         };
       });
     },
@@ -57,8 +58,17 @@ export default function Portfolio({
   const currentScale = state.scroll / scrollFactor;
   const progress = (currentScale - minScale) / (maxScale - minScale);
   const fade = Math.max(0, (progress - fadeThreshold) / (1.0 - fadeThreshold));
+
+  const t = state.total / 5000 / 20.0 + 0.1;
+  const d = [0.263, 0.416, 0.557];
+  const r = Math.cos(6.28318 * (t + d[0]));
+  const g = Math.cos(6.28318 * (t + d[1]));
+  const b = Math.cos(6.28318 * (t + d[2]));
+  // const color = `rgba(${r * 255}, ${b * 255}, 255, 0.6)`;
+  // const color = `rgba(${r}, ${b}, 1.0, 0.6)`;
   return (
-    <Container className={styles.container}>
+    // <Container className={styles.container}>
+    <Box sx={{ padding: "0", margin: "0", width: "100%", height: "100%" }}>
       <Canvas />
       {fade > 0 ? (
         <Item
@@ -66,6 +76,7 @@ export default function Portfolio({
           card={nextCard}
           scale={progress * minScale}
           fade={0}
+          color={[r, g, b]}
           className={styles.card}
         />
       ) : null}
@@ -74,32 +85,40 @@ export default function Portfolio({
         card={card}
         scale={currentScale}
         fade={fade}
+        color={[r, g, b]}
         className={styles.card}
       />
-    </Container>
+    </Box>
   );
 }
 
 function Item(props: ItemProps) {
   const card = props.card ?? {};
+  const [r, g, b] = props.color ?? [0.5, 0.5, 0.5];
+  const color = `rgba(${r * 255}, ${b * 255}, 255, 0.8)`;
+  const fg = `rgba(${255 - r * 255}, ${255 - b * 255}, 255, 1)`;
+
   return (
     <Card
       className={props.className}
       sx={{
         transform: `scale(${props.scale})`,
         opacity: 1.0 - props.fade,
-        // backgroundColor: 'primary.softBg',
+        // backgroundColor: "rgba(0, 0, 0, 0.5)",
+        backgroundColor: color,
         // borderColor: 'primary.border',
       }}
       color="primary"
     >
-      <Typography level="h4" component="h1">
+      <Typography level="h4" component="h1" sx={{ color: "rgb(10, 8, 10)" }}>
         {card.title}
       </Typography>
-      <Typography level="h5" component="h1">
+      <Typography level="h5" component="h1" sx={{ color: fg }}>
         {card.subtitle}
       </Typography>
-      <Typography level="body-sm">{card.about}</Typography>
+      <Typography level="body-sm" sx={{ color: fg }}>
+        {card.about}
+      </Typography>
     </Card>
   );
 }
@@ -108,6 +127,7 @@ interface ItemProps {
   scale: number;
   fade: number;
   className?: string;
+  color?: number[];
   card: PortfolioCard;
 }
 

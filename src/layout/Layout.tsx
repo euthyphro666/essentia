@@ -20,9 +20,12 @@ const TanStackRouterDevtools =
 export default function Layout({ children }: PropsWithChildren) {
   return (
     <Suspense>
-      <Stack className={styles.container} sx={{ backgroundColor: "primary" }}>
+      {/* <Stack className={styles.container} sx={{ backgroundColor: "primary" }}> */}
+      <Stack sx={{ padding: "0", margin: "0", width: "100%", height: "100%" }}>
         {/* <Header /> */}
-        <Box className={styles.inner}>{children}</Box>
+        {/* <Box className={styles.inner}> */}
+        {children}
+        {/* </Box> */}
         {/* <Footer /> */}
         <TanStackRouterDevtools />
       </Stack>

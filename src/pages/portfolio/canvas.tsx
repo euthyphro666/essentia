@@ -1,12 +1,5 @@
 import * as THREE from "three";
-import {
-  Suspense,
-  useRef,
-  useMemo,
-  useEffect,
-  useCallback,
-  useState,
-} from "react";
+import { Suspense, useRef, useMemo, useEffect, useCallback, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { StatsGl } from "@react-three/drei";
 import { GridMaterial } from "./terrain/Material";
@@ -45,12 +38,7 @@ const views = {
 export default function App() {
   const camera = useMemo(() => {
     const view = views.vanishing;
-    const c = new THREE.PerspectiveCamera(
-      view.fov,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      5000
-    );
+    const c = new THREE.PerspectiveCamera(view.fov, window.innerWidth / window.innerHeight, 0.1, 5000);
     // const ca = new THREE.OrthographicCamera()
     c.position.set(view.position[0], view.position[1], view.position[2]);
     c.lookAt(view.lookAt[0], view.lookAt[1], view.lookAt[2]);
@@ -58,6 +46,7 @@ export default function App() {
   }, []);
   return (
     <Canvas dpr={[1, 2]} camera={camera}>
+      {/* // style={{ height: "100%", width: "100%" }}> */}
       <Suspense fallback={null}>
         <Terrain />
         <Sky />
@@ -78,12 +67,7 @@ function Sun() {
   // });
   return (
     <>
-      <directionalLight
-        ref={light}
-        position={[0, 300, -3500]}
-        args={["#f6c7d9", 100]}
-        castShadow={false}
-      />
+      <directionalLight ref={light} position={[0, 300, -3500]} args={["#f6c7d9", 100]} castShadow={false} />
       <mesh ref={mesh} position={[0, -300, -3000]} scale={[1.2, 1, 1]}>
         <circleGeometry args={[1200, 64]} />
         <meshBasicMaterial color="#cc5869" fog={false} />
