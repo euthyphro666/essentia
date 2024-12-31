@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from "react";
-import { Box, Card, Container, Typography } from "@mui/joy";
-import type { PortfolioCard } from "../../types";
-import portfolio from "../../assets/info.json";
-import Canvas from "./canvas";
+import { useCallback, useEffect, useState } from 'react';
+import { Box, Card, Typography } from '@mui/joy';
+import type { PortfolioCard } from '../../types';
+import portfolio from '../../assets/info.json';
+import Canvas from './canvas';
 
-import styles from "./portfolio.module.scss";
+import styles from './portfolio.module.scss';
 
 export interface PortfolioProps {
   minScale: number;
@@ -47,8 +47,8 @@ export default function Portfolio({
   );
 
   useEffect(() => {
-    document.addEventListener("mousewheel", updateScroll);
-    return () => document.removeEventListener("mousewheel", updateScroll);
+    document.addEventListener('mousewheel', updateScroll);
+    return () => document.removeEventListener('mousewheel', updateScroll);
   }, [updateScroll]);
 
   const nextCardIndex = trueMod(state.currentCard + 1, portfolio.length);
@@ -68,7 +68,7 @@ export default function Portfolio({
   // const color = `rgba(${r}, ${b}, 1.0, 0.6)`;
   return (
     // <Container className={styles.container}>
-    <Box sx={{ padding: "0", margin: "0", width: "100%", height: "100%" }}>
+    <Box sx={{ padding: '0', margin: '0', width: '100%', height: '100%' }}>
       <Canvas />
       {fade > 0 ? (
         <Item
@@ -108,15 +108,16 @@ function Item(props: ItemProps) {
         backgroundColor: color,
         // borderColor: 'primary.border',
       }}
-      color="primary"
+      color='primary'
     >
-      <Typography level="h4" component="h1" sx={{ color: "rgb(10, 8, 10)" }}>
+      <Typography level='h4' component='h1' sx={{ color: 'rgb(10, 8, 10)' }}>
         {card.title}
       </Typography>
-      <Typography level="h5" component="h1" sx={{ color: fg }}>
+      <Typography level='h5' component='h1' sx={{ color: fg }}>
         {card.subtitle}
       </Typography>
-      <Typography level="body-sm" sx={{ color: fg }}>
+      {/* <Typography level='body-sm' sx={{ color: fg }}> */}
+      <Typography level='body-sm' sx={{ color: 'grey' }}>
         {card.about}
       </Typography>
     </Card>
