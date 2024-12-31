@@ -1,9 +1,17 @@
-import * as THREE from "three";
-import { Suspense, useRef, useMemo, useEffect, useCallback, useState } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { StatsGl } from "@react-three/drei";
-import { GridMaterial } from "./terrain/Material";
-import { easing } from "maath";
+import React from 'react';
+import * as THREE from 'three';
+import {
+  Suspense,
+  useRef,
+  useMemo,
+  useEffect,
+  useCallback,
+  useState,
+} from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+// import { StatsGl } from '@react-three/drei';
+import { GridMaterial } from './terrain/Material';
+import { easing } from 'maath';
 
 const views = {
   default: {
@@ -38,7 +46,12 @@ const views = {
 export default function App() {
   const camera = useMemo(() => {
     const view = views.vanishing;
-    const c = new THREE.PerspectiveCamera(view.fov, window.innerWidth / window.innerHeight, 0.1, 5000);
+    const c = new THREE.PerspectiveCamera(
+      view.fov,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      5000
+    );
     // const ca = new THREE.OrthographicCamera()
     c.position.set(view.position[0], view.position[1], view.position[2]);
     c.lookAt(view.lookAt[0], view.lookAt[1], view.lookAt[2]);
@@ -67,10 +80,15 @@ function Sun() {
   // });
   return (
     <>
-      <directionalLight ref={light} position={[0, 300, -3500]} args={["#f6c7d9", 100]} castShadow={false} />
+      <directionalLight
+        ref={light as any}
+        position={[0, 300, -3500]}
+        args={['#f6c7d9', 100]}
+        castShadow={false}
+      />
       <mesh ref={mesh} position={[0, -300, -3000]} scale={[1.2, 1, 1]}>
         <circleGeometry args={[1200, 64]} />
-        <meshBasicMaterial color="#cc5869" fog={false} />
+        <meshBasicMaterial color='#cc5869' fog={false} />
       </mesh>
     </>
   );
@@ -80,8 +98,8 @@ function Sky() {
   return (
     <>
       <ambientLight intensity={1} />
-      <color attach="background" args={["#000000"]} />
-      <fog attach="fog" args={["#ffffff", 500, 4000]} />
+      <color attach='background' args={['#000000']} />
+      <fog attach='fog' args={['#ffffff', 500, 4000]} />
       {/* <fogExp2 attach="fog" args={['#ffffff', 0.0003]} /> */}
     </>
   );
@@ -108,13 +126,15 @@ function Terrain() {
   );
 
   useEffect(() => {
-    window.addEventListener("mousewheel", updateScroll);
-    return () => window.removeEventListener("scroll", updateScroll);
+    window.addEventListener('mousewheel', updateScroll);
+    return () => window.removeEventListener('scroll', updateScroll);
   }, [updateScroll]);
 
   useFrame((state, delta) => {
     // material.current.time += delta * 1;
-    material.current.time = scroll / 5000;
+    const current = material?.current as any;
+    if (!current) return;
+    current.time = scroll / 5000;
     easing.damp3(material.current.pointer, state.pointer, 0.2, delta);
   });
 
@@ -136,7 +156,7 @@ function BikeTrail() {
   return (
     <mesh position={[0, 0, 1000]} rotation={[Math.PI / 2, Math.PI / 2, 0]}>
       <boxGeometry args={[30, 2000, 1]} />
-      <meshBasicMaterial color="#89672d" />
+      <meshBasicMaterial color='#89672d' />
     </mesh>
   );
 }
