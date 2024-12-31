@@ -95,7 +95,8 @@ export default function Portfolio({
 function Item(props: ItemProps) {
   const card = props.card ?? {};
   const [r, g, b] = props.color ?? [0.5, 0.5, 0.5];
-  const color = `rgba(${r * 255}, ${b * 255}, 255, 0.8)`;
+  // const color = `rgba(${r * 255}, ${b * 255}, 255, 0.8)`;
+  const color = `rgba(${g}, ${g}, ${g}, 0.8)`;
   const fg = `rgba(${255 - r * 255}, ${255 - b * 255}, 255, 1)`;
 
   return (
