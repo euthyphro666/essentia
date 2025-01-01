@@ -4,7 +4,7 @@
     "month": 9,
     "title": "Network Simulation",
     "subtitle": "Code Jam",
-    "about": "In my first ever code jam, I joined a team of three others where we created a network simulation in VR. We used wire shark to record public traffic which we then fed into our Unity program. The Unity program rendered each packet as a sphere where it got simulated in our VR headset. Our project got us third place in the competition.",
+    "about": "In my first code jam, I joined a team of three others where we created a network simulation in VR. We used wire shark to record public traffic which we then fed into our Unity program. The Unity program rendered each packet as a sphere where it got simulated in our VR headset. Our project got us third place in the competition.",
     "image": ["VrNetworkSimulation.png"],
     "links": [["repo", "https://github.com/mwilde345/CodeCampSingle"]],
     "tags": ["C#", "Unity", "Wireshark"]
