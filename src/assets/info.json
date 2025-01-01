@@ -14,7 +14,7 @@
     "month": 10,
     "title": "Divine Intervention",
     "subtitle": "Code Jam",
-    "about": "During my second code jam, I recruited a good friend of mine to help me make a short video game. We built a norse god themed brawler game in 24 hours. We used the open source LibGDX library to expose OpenGL bindings, but it was otherwise done from scratch. We ended up receiving third place for our entry.",
+    "about": "During my second ever code jam, I recruited a good friend of mine to help me make a short video game. We built a norse god themed brawler game in 24 hours. We used the open source LibGDX library to expose OpenGL bindings, but it was otherwise done from scratch. We ended up receiving third place for our entry.",
     "image": ["DivineIntervention2.jpg", "DivineIntervention1.jpg"],
     "tags": ["Java", "LibGDX", "OpenGL"]
   },
